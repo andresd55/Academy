@@ -1,0 +1,338 @@
+<p-breadcrumb
+  [model]="itemsBreadcrumb"
+  [tittle]="'Notas, Asistencias, Observaciones'"
+  [description]="'Registre la información para la calificacion de los estudiantes'"
+></p-breadcrumb>
+
+<div class="row mb-2">
+  <div class="col-12 col-md-6 col-lg-3 mt-2">
+    <app-button-finotex
+      label="Busqueda avanzada"
+      type="button"
+      typeButton="secondary"
+      [typeSize]="true"
+      (click)="showPanelFilter()"
+    ></app-button-finotex>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <app-search-selector-principal
+      placeholder="Busqueda rapida"
+      icon="pi pi-search"
+      (clickEvent)="onSubmitFilterSearch($event)"
+    ></app-search-selector-principal>
+  </div>
+  <div class="col-12 col-md-12 col-lg-5 mt-2 text-right ">
+    <div class="d-flex fr">
+        <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Excel"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class="mr-2"
+        (click)="exportAs('Excel')"
+      ></app-button-icon-finotex>
+      <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Pdf"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class=""
+        (click)="exportAs('PDF')"
+      ></app-button-icon-finotex>
+    </div>
+    
+  </div>
+</div>
+
+<form [formGroup]="registerFormFilter" (ngSubmit)="onSubmitFilter()">
+  <div class="row {{ showfilters ? 'mb-2' : '' }}" [hidden]="!showfilters">
+    <div class="col-12">
+      <div class="container-serach">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="title-search mb-0">
+              Filtros
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-4 mt-3">
+                <label for="validationDefault01">
+                    Grado
+                </label>
+                <p-dropdown
+                    formControlName="TypeOfDate"
+                    [options]="Grades"
+                    optionLabel="name"
+                    optionValue="code"
+                    placeholder="Seleccione una opción"
+                ></p-dropdown>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <label for="validationDefault01">
+                    Curso
+                </label>
+                <p-dropdown
+                    formControlName="TypeOfDate"
+                    [options]="Courses"
+                    optionLabel="name"
+                    optionValue="code"
+                    placeholder="Seleccione una opción"
+                ></p-dropdown>
+            </div>
+          <div class="col-12 col-md-4 mt-3">
+            <label for="validationDefault01">
+              Materia
+            </label>
+            <p-dropdown
+              formControlName="TypeOfDate"
+              [options]="Subjects"
+              optionLabel="name"
+              optionValue="code"
+              placeholder="Seleccione una opción"
+            ></p-dropdown>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row-reverse mt-3">
+          <div class="pl-2">
+            <button
+              pButton
+              type="submit"
+              label="Buscar"
+              [disabled]="registerFormFilter.invalid || indicatorButton"
+              class="button button-primary filter"
+            ></button>
+          </div>
+
+          <div class="pl-2">
+            <button
+              (click)="clearFilter()"
+              pButton
+              type="button"
+              label="Limpiar Campos"
+              class="button button-secundary filter"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-12 pr-0">
+    <table id="allTable" class="table f-table" style="width: 100%">
+      <thead>
+        <tr>
+          <th>Nombre Estudiante</th>
+          <th>Grado</th>
+          <th>Curso</th>
+          <th>Materia</th>
+          <th>Faltas</th>
+          <th>Nota 1</th>
+          <th>Nota 2</th>
+          <th>Nota 3</th>
+          <th>Observaciones</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.name }}</td>
+          <td>{{ student.grade }}</td>
+          <td>{{ student.course }}</td>
+          <td>{{ student.subject }}</td>
+          <td>{{ student.absence }}</td>
+          <td>{{ student.note1 }}</td>
+          <td>{{ student.note2 }}</td>
+          <td>{{ student.note3 }}</td>
+          <td>{{ student.onservations }}</td>
+          <td class="text-center">
+            <button
+              (click)="downloadFileDesigner(skecht.sketchId)"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-times-circle"
+              class="p-button-rounded p-button-text mr-2"
+              pTooltip="Faltas"
+            ></button>
+            <button
+              (click)="showDetails(student)"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-spell-check"
+              class="p-button-rounded p-button-text mr-2"
+              pTooltip="Calificaciones"
+            ></button>
+            <button
+              (click)="showPanelDialog(student)"
+              pButton
+              pRipple
+              type="button"
+              icon="far fa-comment"
+              tooltipPosition="bottom"
+              class="p-button-rounded p-button-text"
+              pTooltip="Observaciones"
+            ></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="col-12">
+    <p-paginator
+      [rows]="10"
+      [columnsSeparate]="false"
+      [rowsPerPageOptions]="[10, 20, 30]"
+      (onPageChange)="paginate($event)"
+      [totalRecords]="totalRecords"
+    ></p-paginator>
+  </div>
+</div>
+
+<form [formGroup]="registerFormComment" (ngSubmit)="onSubmitCommet()">
+  <p-dialog
+    header="Observaciones"
+    [(visible)]="display"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01">
+          Comentario
+        </label>
+        <textarea
+          [rows]="6"
+          formControlName="observation"
+          class="inputs"
+          placeholder="Comentario"
+          pInputTextarea
+          autoResize="true"
+        ></textarea>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button
+        (click)="display = false"
+        label="Cancelar"
+        styleClass="button button-secundary filter mr-2"
+      ></p-button>
+      <p-button
+        label="Aceptar"
+        type="submit"
+        [disabled]="registerFormComment.invalid || indicatorButtonComment"
+        styleClass="button button-primary filter"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<p-dialog
+  [(visible)]="displayConfirmComment"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '450px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/success.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>El registro se ha guardado de forma exitosa!!</p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>
+        El comentario se ha guardado correctamente, para continuar de click en Aceptar
+      </p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="closeConfirmation()"
+        label="Aceptar"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="notDownloadExcel"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '300px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/icono cancelar.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>
+        result of artworks is empty.
+        <!-- {{ 'artWork.commentSubmitted' | translate }} -->
+      </p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>
+        <!-- {{ 'artWork.requestNumberIs' | translate }}
+        {{ commentSketchResponse.sketchId }}
+        {{ 'artWork.itemDescription' | translate }}
+        {{ description }}
+        {{ 'artWork.msgCheck2' | translate }} -->
+
+        please validate the filters entered
+      </p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="notDownloadExcel = false"
+        label="{{ 'artWork.lblOk' | translate }}"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<p-toast></p-toast>

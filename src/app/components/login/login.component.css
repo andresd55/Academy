@@ -1,0 +1,10 @@
+.companyLogo {
+    width: 200px;
+    height: 200px;
+}
+
+.welcome {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--color-black);
+}
