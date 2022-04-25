@@ -16,13 +16,6 @@ export class LoginComponent implements OnInit {
   showErrorText = "";
   titleLogin = "";
 
-  userType = [
-    {
-      code: '2',
-      name: 'Finotex team'
-    }
-  ]
-
   constructor(
     private router: Router,
     private formBuilder: FormBuilder) { }
@@ -33,13 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getFormTypeUser();
-    // this.getFormLoginUser();
-  }
-
-  private getFormTypeUser() {
-    return (this.registerForm = this.formBuilder.group({
-      user_type: ['2', Validators.required]
-    }));
+    this.getFormLoginUser();
   }
 
   private getFormLoginUser() {
