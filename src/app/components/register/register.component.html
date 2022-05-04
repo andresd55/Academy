@@ -4,149 +4,200 @@
     </h1>
 </div>
 <div class="offset-2 col-8 panel">
-    <div class="row mx-0">
-        <div class="col-6">
-            <label for="validationDefault01">
+    <div class="row mx-0" >
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01"  class="label-required">
                 Nombres
             </label>
             <input
-                type="email"
-                
+                type="text"
+                formControlName="nombres"
                 pInputText
                 placeholder="Nombres"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('nombres') }"
             />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
-        <div class="col-6">
-            <label for="validationDefault01">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
                 Materia Relacionada
             </label>
             <input
-                type="email"
-                
+                type="text"
                 pInputText
                 placeholder="Materia Relacionada"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('nombres') }"
             />
         </div>
     </div>
     <div class="row mx-0 mt-2">
-        <div class="col-6">
-            <label for="validationDefault01">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
                 Apellidos
             </label>
             <input
-                type="email"
-                
+                type="text"
+                formControlName="apellidos"
                 pInputText
                 placeholder="Apellidos"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('apellidos') }"
             />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
-        <div class="col-6">
-            <label for="validationDefault01">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
                 Usuario
             </label>
             <input
-                type="email"
-                
+                type="text"
+                formControlName="usuario"
                 pInputText
                 placeholder="Usuario"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('usuario') }"
             />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
     </div>
     <div class="row mx-0 mt-2">
-        <div class="col-6">
-            <label for="validationDefault01">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
                 Correo
             </label>
             <input
                 type="email"
-                
+                formControlName="correo"
                 pInputText
                 placeholder="Correo"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('correo') }"
             />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
-        <div class="col-6">
-            <label for="validationDefault01">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
                 Contraseña
             </label>
             <input
-                type="email"
-                
+                type="password"
+                formControlName="password"
                 pInputText
                 placeholder="Contraseña"
                 class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('password') }"
             />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
     </div>
     <div class="row mx-0 mt-2">
         <div class="col-6">
-            <div class="form-group">
-                <label for="">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                  <label class="label-required">
                     Foto de perfil
-                </label>
-                <div id="dv_input" class="row mx-0">
-                    <div class="col-md-9  custom-file">
-                        
-                        <input type="file" id="fileupload" (change)="enableButtonDocument($event.target)" name="fileupload" class="custom-file-input" value="fileupload" lang="es">
-                        <label class="custom-file-label" id="lblFuArchivo">Seleccione un
-                                archivo...</label>
-                    </div>
-                    <div class="col-md-3 pr-0">
-                        <input class="button button-primary w-100" id="btnFuArchivo" type="button" value="Cargar" (click)="handleFileInput($event.target)">
-                    </div>
+                  </label>
+                  <em
+                    class="fas fa-info-circle ml-1"
+                    pTooltip="Debe cargar una foto en los siguientes formatos: (JPG, PNG)"
+                  ></em>
                 </div>
-                <div id="dv_succes" class="row text-success d-none">
-                    Cargado
+                <div class="col-12 pl-0 pr-0" [formGroup]="registerFormLogin">
+                  <input
+                    type="text"
+                    id="fotoName"
+                    pInputText
+                    class="form-control input-select-image"
+                    placeholder="Arrastre la imagen aqui"
+                    readonly
+                    [ngClass]="{ 'is-invalid': submitted && !IsValid('foto') }"
+                  />
+                  <div class="invalid-feedback mb-2">
+                    Campo obligatorio 
+                  </div>
                 </div>
-                <div id="dv_error" class="row text-danger d-none">
-                    Campo obligatorio
+                <div class="col-12 pl-0 pr-0 mt-1 text-right">
+                  <button
+                    pButton
+                    (click)="resetFiles()"
+                    type="button"
+                    label="Limpiar"
+                    class="button-select-image-reset mr-1"
+                  ></button>
+                  <input
+                    type="file"
+                    name="file1"
+                    id="file1"
+                    (change)="fileChanged($event)"
+                  />
+                  <button
+                    pButton
+                    type="button"
+                    id="btnupload"
+                    label="Cargar"
+                    class="button-select-image-update"
+                  ></button>
                 </div>
-            </div>
+              </div>
         </div>
-        <div class="col-6">
-            <label for="">
+        <div class="col-6" [formGroup]="registerFormLogin">
+            <label for="" class="label-required">
                 Genero
             </label>
             <div class="row">
-                <div class="col-12 col-md-4 mt-2">
+                <div class="col-12 col-md-6 mt-2">
                     <input
                       type="radio"
-                      value="1"
+                      value="M"
                       class="inp-checkbox"
-                      name="public"
-                      
+                      name="genero"
+                      formControlName="genero"
+                      [ngClass]="{ 'is-invalid': submitted && !IsValid('genero') }"
                       id="rb1"
                     />
                     <label for="rb1" class="ml-4 mt-1">
                        Hombre
                     </label>
+                    <div class="invalid-feedback mb-2 w-300">
+                      Campo obligatorio  
+                    </div> 
                   </div>
             
-                  <div  class="col-12 col-md-4 mt-2">
+                  <div  class="col-12 col-md-6 mt-2">
                     <input
                       type="radio"
-                      value="2"
+                      value="F"
                       class="inp-checkbox"
-                      name="public"
-                      
+                      name="genero"
+                      formControlName="genero"
+                      [ngClass]="{ 'is-invalid': submitted && !IsValid('genero') }"
                       id="rb2"
                     />
                     <label for="rb2" class="ml-4 mt-1">
                       Mujer
                     </label>
-                  </div>
+                  </div>       
             </div>
-            
         </div>
         <div class="col-12 text-right">
             <button
+
                         pButton
-                        type="submit"
+                        type="button"
                         label=""
+                        (click)="register()"
                         class="button button-primary btn-sig"
                       >
                         Aceptar
@@ -163,3 +214,46 @@
         </div>
     </div>
 </div>
+
+<p-dialog
+  [(visible)]="userCreated"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '450px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/success.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>El usuario se ha guardado de forma exitosa!!</p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>
+        Para continuar de click en Aceptar
+      </p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="closeConfirmation()"
+        label="Aceptar"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>

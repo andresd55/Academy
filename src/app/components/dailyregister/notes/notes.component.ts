@@ -1,169 +1,84 @@
-import { DatePipe } from '@angular/common';
-import { AfterContentChecked, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormGroupDirective,
-  Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { CustomerService } from 'src/app/core/services/customer/customer.service';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ExcelService } from 'src/app/core/services/excel/excel.service';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
-import { MessageService } from 'src/app/shared/framework-ui/primeng/api/public_api';
 import { environment } from 'src/environments/environment';
-import * as moment from 'moment';
-import { Subscription } from 'rxjs';
+import { SharedService } from 'src/app/core/services/shared/shared.service';
 
 declare var $: any;
 
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css'],
-  providers: [MessageService, DatePipe],
+  styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit, AfterContentChecked {
-  @ViewChild('ngForm') ngForm: FormGroupDirective;
-  @ViewChild('ngFormFinotex') ngFormFinotex: FormGroupDirective;
-
+  registerFormFails: FormGroup;
+  registerFormGrades: FormGroup;
   registerFormComment: FormGroup;
   registerFormFilter: FormGroup;
-  registerFormFilterUserFinotex: FormGroup;
-  subscription: Subscription;
   itemsBreadcrumb = [
     { label: 'Home', url: '/home' },
-    { label: 'Registro Diario', url: '/home/artworks_history' },
+    { label: 'Registro Diario', url: 'notes' },
     {
       label: 'Notas, Asistencias, Observaciones',
-      url: '/home/artworks_history',
+      url: 'notes',
       current: true,
     },
   ];
   showfilters = false;
-  showfiltersFinotex = false;
-  students = [
-    {
-      name: 'Pepito Perez',
-      grade: 'Sexto', 
-      course: 'A', 
-      subject: 'Inglés', 
-      absence: '1', 
-      note1: '3', 
-      note2: '4.2', 
-      note3: '4.9', 
-      onservations: 'lorem ipsum', 
-    },
-    {
-      name: 'Angie Carretero',
-      grade: 'Sexto', 
-      course: 'A', 
-      subject: 'Inglés', 
-      absence: '1', 
-      note1: '3', 
-      note2: '4.2', 
-      note3: '4.9', 
-      onservations: 'lorem ipsum', 
-    },
-    {
-      name: 'Carlos Gonzáles',
-      grade: 'Sexto', 
-      course: 'A', 
-      subject: 'Inglés', 
-      absence: '1', 
-      note1: '3', 
-      note2: '4.2', 
-      note3: '4.9', 
-      onservations: 'lorem ipsum', 
-    },
-  ];
-  keyword = 'name';
-  display: boolean = false;
+  students = [];
+  displayFails: boolean = false;
+  displayGrades: boolean = false;
+  displayComments: boolean = false;
   displayConfirmComment: boolean = false;
   indicatorButtonComment = false;
-  status = [];
-  productType = [];
   lang = 'en';
   submitted: boolean;
-  sketchStatusId = 0;
-  createdByUser = '';
-  commentSketchResponse: any = {};
-  description = '';
   indicatorButton = false;
   customers = [];
-  indicatorCommentPublic = true;
-  roleProfileCustomer = true;
   totalRecords: number = 0;
   currentPage: number = 1;
   pageLenght = environment.pageLenght;
   notDownloadExcel = false;
-  statusDefault = environment.statusDefaultArtWorksHistory;
-  paramCustomerId: string;
-
-  settingsDates = {
-    minDate: new Date(2021, 1 - 1, 1),
-    isRange: true,
-    required: false,
-    dateFormat: this.lang == 'en' ? 'M/dd/yy' : 'dd/M/yy',
-    ids: ['filter_date'],
-    labels: 'samples.lblDate',
-  };
+  materiaEstudiante: any;
+  student: any; 
 
   Grades = [
     {
-      code: '6',
-      name: 'Sexto', 
+      code: '1',
+      name: 'Primero', 
     },
     {
-      code: '7',
-      name: 'Septimo', 
-    },
-    {
-      code: '8',
-      name: 'Octavo', 
-    },
-    {
-      code: '9',
-      name: 'Noveno', 
-    },
-    {
-      code: '10',
-      name: 'Decimo', 
-    },
-    {
-      code: '11',
-      name: 'Once', 
-    },
+      code: '2',
+      name: 'Segundo', 
+    }
   ];
 
   Courses = [
     {
       code: '1',
-      name: 'A', 
+      name: '1-A', 
     },
     {
       code: '2',
-      name: 'B', 
+      name: '1-B', 
     },
     {
       code: '3',
-      name: 'C', 
+      name: '1-C', 
     }
   ];
 
   Subjects = [
     {
       code: '1',
-      name: 'Inglés', 
+      name: 'Calculo', 
     },
     {
       code: '2',
-      name: 'Matemáticas', 
-    },
-    {
-      code: '3',
-      name: 'Religión', 
+      name: 'Programacion', 
     }
   ];
 
@@ -171,15 +86,9 @@ export class NotesComponent implements OnInit, AfterContentChecked {
 
   constructor(
     private formBuilder: FormBuilder,
-    private storageService: StorageService,
-    private router: Router,
-    private messageService: MessageService,
-    private activatedRoute: ActivatedRoute,
-    private customerService: CustomerService,
-    private datePipe: DatePipe,
-    private translate: TranslateService,
     private excelService: ExcelService,
     private ref: ChangeDetectorRef,
+    private sharedService: SharedService
   ) { 
     this.landscape.addEventListener("change", ev => {
       window.location.reload();
@@ -189,276 +98,169 @@ export class NotesComponent implements OnInit, AfterContentChecked {
   ngOnInit(): void {
     //From
     this.getFormFilter();
-    this.getFormFilterFinotex();
+    this.getFormFails();
+    this.getFormGrades();
     this.getFormComment();
 
     //Services
-    this.getStatusFilter();
-    this.loadArtworksInformationByQueryStringParameter();
+    this.getStudents('');
   }
+
+  filter() {
+    let parameters = '';
+    if(this.registerFormFilter.controls.idMateria.value) {
+      parameters += '?idMateria='+this.registerFormFilter.controls.idMateria.value;
+    } else {
+      parameters += '?idMateria=0';
+    }
+    if(this.registerFormFilter.controls.idGrado.value) {
+        parameters += '&idGrado='+this.registerFormFilter.controls.idGrado.value;
+    } else {
+      parameters += '&idGrado=0';
+    }
+    if(this.registerFormFilter.controls.idCurso.value) {
+        parameters += '&idCurso='+this.registerFormFilter.controls.idCurso.value;
+    } else {
+      parameters += '&idCurso=0';
+    }
+    this.getStudents(parameters);
+  }
+
+  getStudents(parameters) {
+    this.sharedService.getReport(parameters).subscribe(
+      (response) => {
+        this.students = response;
+        this.filterTable();
+      },
+      (error) => {
+      }
+    );
+  }
+  
+  
+  filterTable(){
+    $("app-search-selector-principal input").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("table tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  }
+  
   
   ngAfterContentChecked(): void {
     this.ref.detectChanges();
   }
 
-  loadArtworksInformationByQueryStringParameter() {
-    this.subscription = this.activatedRoute.paramMap.subscribe((params) => {
-      this.paramCustomerId = params.get('customerId');
-    });
+  getFormFails(){
+    return (this.registerFormFails = this.formBuilder.group({
+      faltas: ['', Validators.required]
+    }));
   }
 
+  getFormGrades(){
+    return (this.registerFormGrades = this.formBuilder.group({
+      nota1: ['', Validators.nullValidator],
+      nota2: ['', Validators.nullValidator],
+      nota3: ['', Validators.nullValidator]
+    }));
+  }
 
   getFormComment() {
     return (this.registerFormComment = this.formBuilder.group({
-      sketchId: { value: null, disabled: true },
-      description: { value: null, disabled: true },
-      sketchStatusId: ['', Validators.nullValidator],
-      businessId: ['', Validators.nullValidator],
-      language: ['', Validators.nullValidator],
-      createdByUser: ['', Validators.nullValidator],
-      observation: ['', Validators.required],
-      sketchObservationId: ['', Validators.nullValidator],
-      public: ['', Validators.nullValidator],
-      typeComment: ['', Validators.nullValidator],
+      observation: ['', Validators.required]
     }));
   }
 
   getFormFilter() {
     return (this.registerFormFilter = this.formBuilder.group({
-      CustomerId: ['', Validators.nullValidator],
-      progress_status: ['', Validators.nullValidator],
-      RequestNumber: ['', Validators.nullValidator],
-      Description: ['', Validators.nullValidator],
-      Status: ['', Validators.nullValidator],
-      TypeOfDate: ['', Validators.nullValidator],
-      filter_date: ['', Validators.nullValidator],
-      StartDate: ['', Validators.nullValidator],
-      EndDate: ['', Validators.nullValidator],
-      SemaphoreId: ['', Validators.nullValidator],
-      businessId: ['', Validators.nullValidator],
-      language: ['', Validators.nullValidator],
-      page: [0, Validators.nullValidator],
-      limit: [10, Validators.nullValidator],
-      orderBy: ['', Validators.nullValidator],
-      ordAscendingerBy: [false, Validators.nullValidator],
+      idMateria: ['', Validators.nullValidator],
+      idGrado: ['', Validators.nullValidator],
+      idCurso: ['', Validators.nullValidator]
     }));
-  }
-
-  getFormFilterFinotex() {
-    return (this.registerFormFilterUserFinotex = this.formBuilder.group({
-      CustomerId: ['', Validators.nullValidator],
-      Status: ['', Validators.nullValidator],
-      TypeOfDate: ['', Validators.nullValidator],
-      Description: ['', Validators.nullValidator],
-      RequestNumber: ['', Validators.nullValidator],
-      filter_date_fonotex: ['', Validators.nullValidator],
-      StartDate: ['', Validators.nullValidator],
-      EndDate: ['', Validators.nullValidator],
-      businessId: ['', Validators.nullValidator],
-      language: ['', Validators.nullValidator],
-      page: [0, Validators.nullValidator],
-      limit: [10, Validators.nullValidator],
-      orderBy: ['', Validators.nullValidator],
-      ordAscendingerBy: [false, Validators.nullValidator],
-    }));
-  }
-
-  openNewComment(): void {
-    this.router.navigate(['home/artworks_new', 'add']);
-  }
-
-  showDetails(skecht: any): void {
-    this.router.navigate(['home/artworks_details', skecht.sketchId]);
-  }
-
-  showEdit(skecht: any): void {
-    this.router.navigate(['home/artworks_edit', skecht.sketchId]);
   }
 
   closeConfirmation(): void {
     this.displayConfirmComment = false;
   }
 
+  onSubmitFails(): void {
+    this.displayFails = false;
+    this.materiaEstudiante.faltas = this.registerFormFails.controls.faltas.value;
+    this.saveMateriaEstudiante();
+  }
+
+  onSubmitGrades(): void {
+    this.displayGrades = false;
+    this.materiaEstudiante.nota1 = this.registerFormGrades.controls.nota1.value;
+    this.materiaEstudiante.nota2 = this.registerFormGrades.controls.nota2.value;
+    this.materiaEstudiante.nota3 = this.registerFormGrades.controls.nota3.value;
+    this.saveMateriaEstudiante();
+  }
+
   onSubmitCommet(): void {
-    this.display = false;
-    this.displayConfirmComment = true;
-    // this.indicatorButtonComment = true;
-    // const user = this.storageService.getUser();
-    // this.createdByUser = user.username;
-    // this.registerFormComment.patchValue({
-    //   sketchObservationId: 0,
-    //   public:
-    //     this.registerFormComment.get('public').value == '1' ? true : false,
-    //   createdByUser: this.createdByUser,
-    //   sketchStatusId: this.sketchStatusId,
-    // });
+    this.displayComments = false;
+    this.materiaEstudiante.observacion = this.registerFormComment.controls.observation.value;
+    this.saveMateriaEstudiante();
+  }
+
+  saveMateriaEstudiante() {
+    console.log(this.materiaEstudiante);
+    this.sharedService.updateMateriaEstudiante(this.materiaEstudiante).subscribe(
+      (response) => {
+        this.displayConfirmComment = true;
+        this.getStudents('');
+      },
+      (error) => {
+      }
+    );
   }
 
   public showPanelFilter() {
     this.showfilters = !this.showfilters;
   }
 
-  showPanelDialog(dato: any) {
-    this.display = true;
-    this.registerFormComment.reset();
-    this.registerFormComment.patchValue({
-      sketchId: dato.sketchId,
-      description: dato.sketchName,
-    });
-    this.sketchStatusId = dato.sketchStatusId;
-    this.createdByUser = dato.createdByUser;
-    this.description = dato.sketchName;
-    this.registerFormComment.get('public').setValue('1');
+  showPanelFails(dato: any) {
+    this.displayFails = true;
+    this.registerFormFails.controls.faltas.setValue(dato.faltas);
+    this.mapMateriaEstudiante(dato);
   }
 
-  getStatusFilter() {
+  showPanelGrades(dato: any) {
+    this.displayGrades = true;
+    this.registerFormGrades.controls.nota1.setValue(dato.nota1);
+    this.registerFormGrades.controls.nota2.setValue(dato.nota2);
+    this.registerFormGrades.controls.nota3.setValue(dato.nota3);
+    this.mapMateriaEstudiante(dato);
   }
 
-  sketchFilterService(): void {
-    this.indicatorButton = true;
-    let parameterFilter: any;
+  showPanelComment(dato: any) {
+    this.displayComments = true;
+    this.registerFormComment.controls.observation.setValue(dato.observacion);
+    this.mapMateriaEstudiante(dato);
   }
 
-  filterStatus(id: number): string {
-    const filtro = this.status.filter((lista) => lista.sketchStatusId === id);
-    return filtro[0].sketchStatusName;
-  }
-
-  public formatDate(fecha: any) {
-    moment.locale(this.storageService.getLanguage());
-    return moment(fecha, 'YYYY-MM-DD').format('MMM/DD/YYYY');
+  mapMateriaEstudiante(dato) {
+    this.student = dato;
+    this.materiaEstudiante = { 
+      idMateriaEstudiante: dato.idMateriaEstudiante,
+      idEstudiante: dato.idEstudiante,
+      idMateriaDocente: dato.idMateriaDocente,
+      faltas: dato.faltas,
+      nota1: dato.nota1,
+      nota2: dato.nota2,
+      nota3: dato.nota3,
+      observacion : dato.observacion
+    };
   }
 
   clearFilter() {
     this.registerFormFilter.reset();
   }
 
-  clearFilterFinotex() {
-    this.registerFormFilterUserFinotex.reset();
-  }
-
-  onSubmitFilter(): void {
-    moment.locale(this.storageService.getLanguage());
-
-    this.registerFormFilter.patchValue({
-      CustomerId: this.storageService.getGrup(),
-      RequestNumber: this.registerFormFilter.get('RequestNumber').value
-        ? this.registerFormFilter.get('RequestNumber').value
-        : null,
-      Description: this.registerFormFilter.get('Description').value
-        ? this.registerFormFilter.get('Description').value
-        : null,
-      Status: this.registerFormFilter.get('Status').value
-        ? this.registerFormFilter.get('Status').value
-        : null,
-      TypeOfDate: this.registerFormFilter.get('TypeOfDate').value
-        ? this.registerFormFilter.get('TypeOfDate').value
-        : null,
-      StartDate: this.registerFormFilter.get('filter_date').value
-        ? moment(
-          this.registerFormFilter
-            .get('filter_date')
-            .value.split(' - ')[0],
-          'MMM/DD/YYYY'
-        ).format('YYYY-MM-DD') + ' 00:00:01'
-        : null,
-      EndDate: this.registerFormFilter.get('filter_date').value
-        ? moment(
-          this.registerFormFilter
-            .get('filter_date')
-            .value.split(' - ')[1],
-          'MMM/DD/YYYY'
-        ).format('YYYY-MM-DD') + ' 23:59:59'
-        : null,
-      SemaphoreId: this.registerFormFilter.get('progress_status').value
-        ? this.registerFormFilter.get('progress_status').value
-        : null,
-      page: this.currentPage,
-      limit: this.pageLenght,
-      orderBy: 'SketchId',
-      ordAscendingerBy: false,
-    });
-
-    this.sketchFilterService();
-  }
-
-  onSubmitFilterFinotex(): void {
-    moment.locale(this.storageService.getLanguage());
-    this.registerFormFilterUserFinotex.patchValue({
-      CustomerId: this.registerFormFilterUserFinotex.get('CustomerId').value
-        ? this.registerFormFilterUserFinotex.get('CustomerId').value
-        : null,
-      RequestNumber: this.registerFormFilterUserFinotex.get('RequestNumber')
-        .value
-        ? this.registerFormFilterUserFinotex.get('RequestNumber').value
-        : null,
-      Description: this.registerFormFilterUserFinotex.get('Description').value
-        ? this.registerFormFilterUserFinotex.get('Description').value
-        : null,
-      Status: this.registerFormFilterUserFinotex.get('Status').value
-        ? this.registerFormFilterUserFinotex.get('Status').value
-        : null,
-      TypeOfDate: this.registerFormFilterUserFinotex.get('TypeOfDate').value
-        ? this.registerFormFilterUserFinotex.get('TypeOfDate').value
-        : null,
-      StartDate: this.registerFormFilterUserFinotex.get('filter_date_fonotex')
-        .value
-        ? moment(
-          this.registerFormFilterUserFinotex
-            .get('filter_date_fonotex')
-            .value.split(' - ')[0],
-          'MMM/DD/YYYY'
-        ).format('YYYY-MM-DD') + ' 00:00:01'
-        : null,
-      EndDate: this.registerFormFilterUserFinotex.get('filter_date_fonotex')
-        .value
-        ? moment(
-          this.registerFormFilterUserFinotex
-            .get('filter_date_fonotex')
-            .value.split(' - ')[1],
-          'MMM/DD/YYYY'
-        ).format('YYYY-MM-DD') + ' 23:59:59'
-        : null,
-      page: this.currentPage,
-      limit: this.pageLenght,
-      orderBy: 'SketchId',
-      ordAscendingerBy: false,
-    });
-    this.sketchFilterService();
-  }
-
-  serviceCustomers() {
-    const data = {
-      zones: this.storageService.getGrupId() ? this.storageService.getGrupId().zoneIds : null,
-      salesExecutives: this.storageService.getGrupId() ? this.storageService.getGrupId().salesExecutiveGroupIds : null,
-    };
-  }
-
-  downloadFileDesigner(sketchId: any) {
-    let designerFile: any;
-    const data = {
-      sketchId: sketchId,
-    };
-  }
-
-  downloadFile(file) {
-    if (file) {
-      const link = document.createElement('a');
-      if (file.fileTemporal) {
-        link.href = file.fileTemporal;
-        link.download = file.fileName;
-        link.click();
-      }
-    }
-  }
-
   paginate(event) {
     this.currentPage = event.page + 1;
     this.pageLenght = event.rows;
-  }
-
-  callDefaultArtworks() {
-    this.sketchFilterService();
   }
 
   exportAs(type: string): void {
@@ -477,15 +279,15 @@ export class NotesComponent implements OnInit, AfterContentChecked {
 
     this.students.map((s) => {
       body.push({
-        'Nombre': s.name,
-        'Grado': s.grade,
-        'Curso': s.course,
-        'Materia': s.subject,
-        'Fallas': s.absence,
-        'Nota 1': s.note1,
-        'Nota 2': s.note2,
-        'Nota 3': s.note3,
-        'Observaciones': s.onservations,
+        'Nombre': s.estudiante.nombres + ' ' + s.estudiante.apellidos,
+        'Grado': s.estudiante.grado.nombre,
+        'Curso': s.estudiante.curso.nombre,
+        'Materia': s.idMateriaEstudiante,
+        'Fallas': s.faltas,
+        'Nota 1': s.nota1,
+        'Nota 2': s.nota2,
+        'Nota 3': s.nota3,
+        'Observaciones': s.observacion,
       });
     });
     this.notDownloadExcel = !(this.students.length > 0)!;
@@ -497,15 +299,4 @@ export class NotesComponent implements OnInit, AfterContentChecked {
       }
     }
   }
-
-  onSubmitFilterSearch(data: string) {
-    const formDataFilterSearch = {
-      page: this.currentPage,
-      limit: this.pageLenght,
-      orderBy: '',
-      ordAscendingerBy: true,
-      textToFilter: data,
-    };
-  }
-
 }

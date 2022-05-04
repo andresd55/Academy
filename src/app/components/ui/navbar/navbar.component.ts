@@ -3,22 +3,18 @@ import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
-import * as signalR from '@microsoft/signalr';
 import { NotificationDto } from 'src/app/shared/models/notification-dto';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { SharedService } from 'src/app/core/services/shared/shared.service';
-import { MessageService } from 'src/app/shared/framework-ui/primeng/api/messageservice';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RoleProfileInternal } from 'src/app/shared/constant/roleProfile';
 
 declare var $: any;
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  providers: [MessageService, DatePipe]
+  styleUrls: ['./navbar.component.css']
 })
 
 export class NavbarComponent implements OnInit, OnDestroy {
@@ -44,11 +40,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isOperator = false;
 
   constructor(
-    private datePipe: DatePipe,
     public translate: TranslateService,
     private sharedService: SharedService,
     private router: Router,
-    private messageService: MessageService,
     private storageService: StorageService,
     private formBuilder: FormBuilder
   ) {
@@ -56,19 +50,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.currentUserAplication = this.storageService.getUser();
-    if (this.currentUserAplication != null) {
-      let currentLang: string;
-      currentLang = this.storageService.getLanguage() ? this.storageService.getLanguage() : 'en';
-      this.translate.addLangs(['en', 'es']);
-      this.translate.setDefaultLang(currentLang);
-      this.translate.use(currentLang);
-      this.isEnglish = !(this.storageService.getLanguage() == 'es');
-      this.notifications = JSON.parse(localStorage.getItem('notifications'));
-      this.isIframe = window !== window.parent && !window.opener;
-      this.setLoginDisplay();
-      this.getForm();     
-    }
+    this.currentUserAplication = JSON.parse(localStorage.getItem('user'));
   }
   logout() {
     this.storageService.logoutUser();
@@ -138,11 +120,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
           window.location.reload();
         } else {
           this.indicatorButton = false;
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: response.message });
         }
       },
       (error) => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: error.message });
         this.indicatorButton = false;
       },
       () => {
@@ -150,37 +130,5 @@ export class NavbarComponent implements OnInit, OnDestroy {
       }
     );
 
-  }
-
-  refreshToken(){
-    let that = this;
-    let refreshToken = that.currentUserAplication.refresh_token;
-    let seconds = that.currentUserAplication.expires_in;
-    let currentTime = new Date();
-    currentTime.setSeconds(seconds);     
-    if(that.isOperator){
-      setInterval(function () {
-        if(new Date() > currentTime){
-          that.sharedService.refreshTokenB2b(refreshToken).subscribe(
-            (response) => {
-              currentTime = new Date();
-              if (response.status) {
-                refreshToken = response.data.refresh_token;
-                seconds = response.data.expires_in;
-                currentTime.setSeconds(seconds);
-                that.storageService.refreshToken(response.data.access_token,response.data.expires_in,response.data.refresh_token);                
-              } else {
-                this.messageService.add({ severity: 'error', summary: 'Error', detail: response.message });
-              }
-            },
-            (error) => {
-              this.messageService.add({ severity: 'error', summary: 'Error', detail: error.message });
-            },
-            () => {
-            }
-          );
-        }
-      }, environment.refreshTokenTime)
-    }
   }
 }

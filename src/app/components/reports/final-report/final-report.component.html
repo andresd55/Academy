@@ -1,1 +1,167 @@
-<p>final-report works!</p>
+<p-breadcrumb
+  [model]="itemsBreadcrumb"
+  [tittle]="'Generación reportes académicos finales'"
+  [description]="'Aqui puede visualizar el reporte de notas de los estudiantes'"
+></p-breadcrumb>
+
+<div class="row mb-2">
+    <div class="col-12 col-md-6 col-lg-3 mt-2">
+        <app-button-finotex
+          label="Búsqueda avanzada"
+          type="button"
+          typeButton="secondary"
+          [typeSize]="true"
+          (click)="showPanelFilter()"
+        ></app-button-finotex>
+      </div>
+    
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <app-search-selector-principal
+      placeholder="Búsqueda rapida"
+      icon="pi pi-search"
+    ></app-search-selector-principal>
+  </div>
+  <div class="col-12 col-md-12 col-lg-5 mt-2 text-right ">
+    <div class="d-flex fr">
+        <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Excel"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class="mr-2"
+        (click)="exportAs('Excel')"
+      ></app-button-icon-finotex>
+      <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Pdf"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class=""
+        (click)="exportAs('PDF')"
+      ></app-button-icon-finotex>
+    </div>
+    
+  </div>
+</div>
+<form [formGroup]="registerFormFilter" >
+    <div class="row {{ showfilters ? 'mb-2' : '' }}" [hidden]="!showfilters">
+      <div class="col-12">
+        <div class="container-serach">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="" class="title-search mb-0">
+                Filtros
+              </label>
+            </div>
+          </div>
+  
+          <div class="row">
+              <div class="col-12 col-md-4 mt-3">
+                  <label for="validationDefault01">
+                      Grado
+                  </label>
+                  <p-dropdown
+                      formControlName="idGrado"
+                      [options]="Grades"
+                      optionLabel="name"
+                      optionValue="code"
+                      placeholder="Seleccione una opción"
+                  ></p-dropdown>
+              </div>
+              <div class="col-12 col-md-4 mt-3">
+                  <label for="validationDefault01">
+                      Curso
+                  </label>
+                  <p-dropdown
+                      formControlName="idCurso"
+                      [options]="Courses"
+                      optionLabel="name"
+                      optionValue="code"
+                      placeholder="Seleccione una opción"
+                  ></p-dropdown>
+              </div>
+            <div class="col-12 col-md-4 mt-3">
+              <label for="validationDefault01">
+                Materia
+              </label>
+              <p-dropdown
+                formControlName="idMateria"
+                [options]="Subjects"
+                optionLabel="name"
+                optionValue="code"
+                placeholder="Seleccione una opción"
+              ></p-dropdown>
+            </div>
+          </div>
+  
+          <div class="d-flex flex-row-reverse mt-3">
+            <div class="pl-2">
+              <button
+                pButton
+                type="button"
+                (click)="filter()"
+                label="Buscar"
+                [disabled]="registerFormFilter.invalid || indicatorButton"
+                class="button button-primary filter"
+              ></button>
+            </div>
+  
+            <div class="pl-2">
+              <button
+                (click)="clearFilter()"
+                pButton
+                type="button"
+                label="Limpiar Campos"
+                class="button button-secundary filter"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+<div class="row">
+  <div class="col-12 pr-0">
+    <div style="overflow-x:auto;">
+    <p-table [data]="students" id="allTable" class="table f-table" style="width: 100%">
+    <tr theaderRecords>
+          <th>Nombre</th>
+          <th>Curso</th>
+          <th>Grado</th>
+          <th>Materia</th>
+          <th>Nota 1</th>
+          <th>Nota 2</th>
+          <th>Nota 3</th>
+          <th>Nota Final</th>
+          <th>Promedio</th>
+          <th>Puesto</th>
+        </tr>
+        <tr tbodyRecords *ngFor="let student of students">
+          <td>{{ student.estudiante }}</td>
+          <td>{{ student.curso }}</td>
+          <td>{{ student.grado }}</td>
+          <td>{{ student.materia }}</td>
+          <td>{{ student.nota1 }}</td>
+          <td>{{ student.nota2 }}</td>
+          <td>{{ student.nota3 }}</td>
+          <td>{{ student.notaFinal }}</td>
+          <td>{{ student.promedio }}</td>
+          <td>{{ student.puesto }}</td>
+        </tr>
+    </p-table>
+  </div>
+  </div>
+  <div class="col-12">
+    <p-paginator
+      [rows]="10"
+      [columnsSeparate]="false"
+      [rowsPerPageOptions]="[10, 20, 30]"
+      (onPageChange)="paginate($event)"
+      [totalRecords]="totalRecords"
+    ></p-paginator>
+  </div>
+</div>
+
+<p-toast></p-toast>

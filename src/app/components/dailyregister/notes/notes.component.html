@@ -7,7 +7,7 @@
 <div class="row mb-2">
   <div class="col-12 col-md-6 col-lg-3 mt-2">
     <app-button-finotex
-      label="Busqueda avanzada"
+      label="Búsqueda avanzada"
       type="button"
       typeButton="secondary"
       [typeSize]="true"
@@ -17,9 +17,8 @@
 
   <div class="col-12 col-md-6 col-lg-4 mt-2">
     <app-search-selector-principal
-      placeholder="Busqueda rapida"
+      placeholder="Búsqueda rapida"
       icon="pi pi-search"
-      (clickEvent)="onSubmitFilterSearch($event)"
     ></app-search-selector-principal>
   </div>
   <div class="col-12 col-md-12 col-lg-5 mt-2 text-right ">
@@ -47,7 +46,7 @@
   </div>
 </div>
 
-<form [formGroup]="registerFormFilter" (ngSubmit)="onSubmitFilter()">
+<form [formGroup]="registerFormFilter" >
   <div class="row {{ showfilters ? 'mb-2' : '' }}" [hidden]="!showfilters">
     <div class="col-12">
       <div class="container-serach">
@@ -65,7 +64,7 @@
                     Grado
                 </label>
                 <p-dropdown
-                    formControlName="TypeOfDate"
+                    formControlName="idGrado"
                     [options]="Grades"
                     optionLabel="name"
                     optionValue="code"
@@ -77,7 +76,7 @@
                     Curso
                 </label>
                 <p-dropdown
-                    formControlName="TypeOfDate"
+                    formControlName="idCurso"
                     [options]="Courses"
                     optionLabel="name"
                     optionValue="code"
@@ -89,7 +88,7 @@
               Materia
             </label>
             <p-dropdown
-              formControlName="TypeOfDate"
+              formControlName="idMateria"
               [options]="Subjects"
               optionLabel="name"
               optionValue="code"
@@ -102,7 +101,8 @@
           <div class="pl-2">
             <button
               pButton
-              type="submit"
+              type="button"
+              (click)="filter()"
               label="Buscar"
               [disabled]="registerFormFilter.invalid || indicatorButton"
               class="button button-primary filter"
@@ -126,9 +126,9 @@
 
 <div class="row">
   <div class="col-12 pr-0">
-    <table id="allTable" class="table f-table" style="width: 100%">
-      <thead>
-        <tr>
+    <div style="overflow-x:auto;">
+    <p-table [data]="students" id="allTable" class="table f-table" style="width: 100%">
+    <tr theaderRecords>
           <th>Nombre Estudiante</th>
           <th>Grado</th>
           <th>Curso</th>
@@ -140,21 +140,19 @@
           <th>Observaciones</th>
           <th>Acciones</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{ student.name }}</td>
-          <td>{{ student.grade }}</td>
-          <td>{{ student.course }}</td>
-          <td>{{ student.subject }}</td>
-          <td>{{ student.absence }}</td>
-          <td>{{ student.note1 }}</td>
-          <td>{{ student.note2 }}</td>
-          <td>{{ student.note3 }}</td>
-          <td>{{ student.onservations }}</td>
+        <tr tbodyRecords *ngFor="let student of students">
+          <td>{{ student.estudiante.nombres + ' ' + student.estudiante.apellidos }}</td>
+          <td>{{ student.estudiante.grado.nombre }}</td>
+          <td>{{ student.estudiante.curso.nombre }}</td>
+          <td>{{ student.idMateriaEstudiante }}</td>
+          <td>{{ student.faltas }}</td>
+          <td>{{ student.nota1 }}</td>
+          <td>{{ student.nota2 }}</td>
+          <td>{{ student.nota3 }}</td>
+          <td>{{ student.observacion }}</td>
           <td class="text-center">
             <button
-              (click)="downloadFileDesigner(skecht.sketchId)"
+              (click)="showPanelFails(student)"
               pButton
               pRipple
               type="button"
@@ -163,7 +161,7 @@
               pTooltip="Faltas"
             ></button>
             <button
-              (click)="showDetails(student)"
+              (click)="showPanelGrades(student)"
               pButton
               pRipple
               type="button"
@@ -172,7 +170,7 @@
               pTooltip="Calificaciones"
             ></button>
             <button
-              (click)="showPanelDialog(student)"
+              (click)="showPanelComment(student)"
               pButton
               pRipple
               type="button"
@@ -183,9 +181,8 @@
             ></button>
           </td>
         </tr>
-      </tbody>
-    </table>
-
+    </p-table>
+  </div>
   </div>
   <div class="col-12">
     <p-paginator
@@ -198,10 +195,54 @@
   </div>
 </div>
 
-<form [formGroup]="registerFormComment" (ngSubmit)="onSubmitCommet()">
+<form [formGroup]="registerFormFails" (ngSubmit)="onSubmitFails()">
   <p-dialog
-    header="Observaciones"
-    [(visible)]="display"
+    header="Faltas"
+    [(visible)]="displayFails"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01" class="label-required">
+          Faltas del estudiante {{ student?.estudiante.nombres + ' ' + student?.estudiante.apellidos }}
+        </label>
+        <input
+                type="number"
+                formControlName="faltas"
+                pInputText
+                placeholder="faltas"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button
+        (click)="displayFails = false"
+        label="Cancelar"
+        styleClass="button button-secundary filter mr-2"
+      ></p-button>
+      <p-button
+        label="Aceptar"
+        type="submit"
+        [disabled]="registerFormFails.invalid"
+        styleClass="button button-primary filter"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<form [formGroup]="registerFormGrades" (ngSubmit)="onSubmitGrades()">
+  <p-dialog
+    header="Notas"
+    [(visible)]="displayGrades"
     [modal]="true"
     [baseZIndex]="10000"
     [draggable]="false"
@@ -211,7 +252,88 @@
     <div class="row">
       <div class="col-12 col-xl-12">
         <label for="validationDefault01">
-          Comentario
+          Notas del estudiante {{ student?.estudiante.nombres + ' ' + student?.estudiante.apellidos }}
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="validationDefault01">
+          Nota 1
+        </label>
+        <input
+                type="number"
+                formControlName="nota1"
+                pInputText
+                placeholder="Nota 1"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+      <div class="col">
+        <label for="validationDefault01">
+          Nota 2
+        </label>
+        <input
+                type="number"
+                formControlName="nota2"
+                pInputText
+                placeholder="Nota 2"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+      <div class="col">
+        <label for="validationDefault01">
+          Nota 3
+        </label>
+        <input
+                type="number"
+                formControlName="nota3"
+                pInputText
+                placeholder="Nota 3"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button
+        (click)="displayGrades = false"
+        label="Cancelar"
+        styleClass="button button-secundary filter mr-2"
+      ></p-button>
+      <p-button
+        label="Aceptar"
+        type="submit"
+        [disabled]="registerFormGrades.invalid"
+        styleClass="button button-primary filter"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<form [formGroup]="registerFormComment" (ngSubmit)="onSubmitCommet()">
+  <p-dialog
+    header="Observaciones"
+    [(visible)]="displayComments"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01">
+          Observaciones del estudiante {{ student?.estudiante.nombres + ' ' + student?.estudiante.apellidos }}
         </label>
         <textarea
           [rows]="6"
@@ -226,7 +348,7 @@
 
     <ng-template pTemplate="footer">
       <p-button
-        (click)="display = false"
+        (click)="displayComments = false"
         label="Cancelar"
         styleClass="button button-secundary filter mr-2"
       ></p-button>
@@ -267,7 +389,7 @@
     </div>
     <div class="col-md-12 text-center mt-16 description-page">
       <p>
-        El comentario se ha guardado correctamente, para continuar de click en Aceptar
+        Para continuar de click en Aceptar
       </p>
     </div>
   </div>
@@ -277,58 +399,6 @@
       <p-button
         (click)="closeConfirmation()"
         label="Aceptar"
-        styleClass="button button-primary text-center"
-      ></p-button>
-    </div>
-  </ng-template>
-</p-dialog>
-
-<p-dialog
-  [(visible)]="notDownloadExcel"
-  [contentStyleClass]="'border-top'"
-  [modal]="true"
-  [baseZIndex]="10000"
-  [draggable]="false"
-  [showHeader]="false"
-  [resizable]="false"
-  [style]="{ width: '300px' }"
->
-  <div class="row">
-    <div class="col-md-12 text-center font50">
-      <img
-        _ngcontent-amv-c221=""
-        width="60px"
-        height="60px"
-        src="../../../assets/images/icono cancelar.svg"
-        alt="shopping cart"
-        class="simple-img"
-        appImage
-      />
-    </div>
-    <div class="col-md-12 text-center mt-24">
-      <p>
-        result of artworks is empty.
-        <!-- {{ 'artWork.commentSubmitted' | translate }} -->
-      </p>
-    </div>
-    <div class="col-md-12 text-center mt-16 description-page">
-      <p>
-        <!-- {{ 'artWork.requestNumberIs' | translate }}
-        {{ commentSketchResponse.sketchId }}
-        {{ 'artWork.itemDescription' | translate }}
-        {{ description }}
-        {{ 'artWork.msgCheck2' | translate }} -->
-
-        please validate the filters entered
-      </p>
-    </div>
-  </div>
-
-  <ng-template pTemplate="footer">
-    <div class="col-md-12 text-center">
-      <p-button
-        (click)="notDownloadExcel = false"
-        label="{{ 'artWork.lblOk' | translate }}"
         styleClass="button button-primary text-center"
       ></p-button>
     </div>

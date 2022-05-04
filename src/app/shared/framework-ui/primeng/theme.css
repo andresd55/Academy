@@ -7940,7 +7940,7 @@ input[type='radio']:after {
 
 input[type='radio']:after {
   border-radius: 50%;
-  padding-left: 7px;
+  padding-left: 6.5px;
 }
 
 input[type='checkbox']:checked:after,
@@ -7950,7 +7950,7 @@ input[type='radio']:checked:after {
   font-weight: 900;
   background-color: var(--color-primary);
   font-weight: bold;
-  padding-top: 7.2px;
+  padding-top: 5.2px;
 }
 
 .hr-car {
@@ -8728,4 +8728,20 @@ body {
   text-shadow: -1px 1px 1px var(--color-secundary);
 }
 
+.input-select-image {
+  height: 80px !important;
+}
 
+.inputs:invalid,
+.autocomplete-container input:invalid,
+.is-invalid:not(p-dropdown),
+.p-dropdown-search__field:invalid, 
+.is-invalid::after, .is-invalid .p-dropdown {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #d6001ccc !important;
+}
+
+input {
+  height: 40px !important;
+  border-radius: 10px !important;
+}

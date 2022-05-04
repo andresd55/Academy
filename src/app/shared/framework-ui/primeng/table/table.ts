@@ -20,7 +20,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
                         <img  class="simple-img img-not-data"
                             src="../../../../assets/images/folder-open.svg" 
                             alt="profile" />
-                        <div class="mb-16"><label class="text-no-data">{{ 'general.noData' | translate  }}</label></div>
+                        <div class="mb-16"><label class="text-no-data">{{ 'No se encontraron Datos'  }}</label></div>
                         </td>
                     </tr>
                         

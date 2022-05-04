@@ -3,38 +3,28 @@ import { By } from '@angular/platform-browser';
 import { Toast, ToastItem } from './toast';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Component } from '@angular/core';
-import { MessageService } from '../api/public_api';
 
 @Component({
     template: `
         <p-toast></p-toast>
-    `,
-    providers: [MessageService]
+    `
 })
 class TestToastComponent {
-    constructor(private messageService: MessageService) { }
+    constructor() { }
 
     showDefaultToast(severity) {
-        this.messageService.add({ severity: severity, summary: "summary", detail: "detail" });
     }
 
     showWithKey(key) {
-        this.messageService.add({ key: key, severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' });
     }
 
     showMultipleToast() {
-        this.messageService.addAll([
-            { severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' },
-            { severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' }
-        ]);
     }
 
     onClearWithKey(key) {
-        this.messageService.clear(key);
     }
 
     onClear() {
-        this.messageService.clear();
     }
 }
 

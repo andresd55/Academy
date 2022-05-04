@@ -2,7 +2,7 @@ import { NgModule, Component, Input, Output, OnInit, AfterViewInit, AfterContent
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { trigger, state, style, transition, animate, query, animateChild, AnimationEvent } from '@angular/animations';
-import { Message, MessageService, PrimeNGConfig, PrimeTemplate, SharedModule } from '../api/public_api';
+import { Message, PrimeNGConfig, PrimeTemplate, SharedModule } from '../api/public_api';
 import { UniqueComponentId, ZIndexUtils } from '../utils/public_api';
 import { DomHandler } from '../dom/public_api';
 import { RippleModule } from '../ripple/public_api';
@@ -193,37 +193,13 @@ export class Toast implements OnInit, AfterContentInit, OnDestroy {
 
     template: TemplateRef<any>;
 
-    constructor(public messageService: MessageService, private cd: ChangeDetectorRef, public config: PrimeNGConfig) { }
+    constructor(private cd: ChangeDetectorRef, public config: PrimeNGConfig) { }
 
     styleElement: any;
 
     id: string = UniqueComponentId();
 
     ngOnInit() {
-        this.messageSubscription = this.messageService.messageObserver.subscribe(messages => {
-            if (messages) {
-                if (messages instanceof Array) {
-                    const filteredMessages = messages.filter(m => this.canAdd(m));
-                    this.add(filteredMessages);
-                }
-                else if (this.canAdd(messages)) {
-                    this.add([messages]);
-                }
-            }
-        });
-
-        this.clearSubscription = this.messageService.clearObserver.subscribe(key => {
-            if (key) {
-                if (this.key === key) {
-                    this.messages = null;
-                }
-            }
-            else {
-                this.messages = null;
-            }
-
-            this.cd.markForCheck();
-        });
     }
 
     ngAfterViewInit() {
