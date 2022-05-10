@@ -59,6 +59,17 @@ export class CreateStudentComponent implements OnInit {
     }
   ];
 
+  Subjects = [
+    {
+      code: '1',
+      name: 'Calculo', 
+    },
+    {
+      code: '2',
+      name: 'Programacion', 
+    }
+  ];
+
   constructor(private router: Router, private formBuilder: FormBuilder, 
     private sharedService: SharedService) { }
 
@@ -77,7 +88,8 @@ export class CreateStudentComponent implements OnInit {
       correo: ['', Validators.required],
       genero: ['', Validators.required],
       idGrado: ['', Validators.required],
-      idCurso: ['', Validators.required]
+      idCurso: ['', Validators.required],
+      idMateriaDocente: ['', Validators.required],
     }));
   }
 

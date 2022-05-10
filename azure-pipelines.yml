@@ -10,9 +10,9 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '132fc9d7-5d4e-428d-9a85-6f2e358fab56'
-  applicationName: 'FinotexWebCompanyDev'
-  imageRepository: 'finotexwebcompany'
-  containerRegistry: 'finotexazurecontainerregister.azurecr.io'
+  applicationName: 'AcademyWebCompanyDev'
+  imageRepository: 'academywebcompany'
+  containerRegistry: 'academyazurecontainerregister.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
 

@@ -8,7 +8,7 @@ import packageJson from '../../package.json';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Finotex';
+  title = 'Academy';
   
   ngOnInit(): void {
     console.log(`Version APP: ${packageJson.version}`);

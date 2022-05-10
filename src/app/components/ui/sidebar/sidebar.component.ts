@@ -1,4 +1,5 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +10,7 @@ export class SidebarComponent implements OnInit, AfterContentInit {
 
   public listMenu: any = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -54,5 +55,11 @@ export class SidebarComponent implements OnInit, AfterContentInit {
         ]
       }
     ];
+  }
+
+  navigateUrl(route: string) {
+    this.router.navigate(['home/' + route]).then(() => {
+      window.location.reload();
+    });
   }
 }

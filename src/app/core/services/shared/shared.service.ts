@@ -48,7 +48,7 @@ export class SharedService {
 
   updateMateriaEstudiante(body): Observable<any> {
     return this.http.put<any>(
-      `${environment.baseUrl.url}/MateriaEstudiante/1`,
+      `${environment.baseUrl.url}/MateriaEstudiante`,
       body
     );
   }

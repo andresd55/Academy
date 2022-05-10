@@ -5,7 +5,7 @@ export const environment = {
   pageLenghtCard: 5,
   refreshTokenTime: 300000,
   baseUrl: {
-    url: "https://apimanagementfinotex.azure-api.net/"
+    url: "https://academyapiservice.azurewebsites.net/api"
   },
   methods: {
     Sketch: "SalesDev/api/V1",

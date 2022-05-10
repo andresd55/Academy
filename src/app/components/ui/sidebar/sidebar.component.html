@@ -40,7 +40,7 @@
             <ul class="nav sub-menu">
               <ng-container *ngFor="let sub of item.subMenu">
                 <li class="nav-item">
-                  <a [routerLink]="[sub.rute]" class="nav-link">{{sub.label | translate}}</a>
+                  <a (click)="navigateUrl(sub.rute)"  class="nav-link">{{sub.label | translate}}</a>
                 </li>
               </ng-container>
             </ul>

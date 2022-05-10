@@ -194,7 +194,7 @@ export class FinalReportComponent implements OnInit {
         'Nota 3': s.nota3,
         'NotaFinal': s.notaFinal,
         'Promedio': s.promedio,
-        'Puesto': s.Puesto,
+        'Puesto': s.puesto,
       });
     });
     this.notDownloadExcel = !(this.students.length > 0)!;

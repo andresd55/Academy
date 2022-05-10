@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Finotex": {
+    "Academy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -21,7 +21,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": ["lodash", "xlsx"],
-            "outputPath": "dist/Finotex",
+            "outputPath": "dist/Academy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -91,13 +91,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Finotex:build:production"
+              "browserTarget": "Academy:build:production"
             },
             "development": {
-              "browserTarget": "Finotex:build:development"
+              "browserTarget": "Academy:build:development"
             },
             "QA": {
-              "browserTarget": "Finotex:build:QA"
+              "browserTarget": "Academy:build:QA"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +105,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Finotex:build"
+            "browserTarget": "Academy:build"
           }
         },
         "test": {
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "Finotex"
+  "defaultProject": "Academy"
 }

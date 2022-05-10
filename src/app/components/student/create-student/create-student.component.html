@@ -134,13 +134,13 @@
             <label for="validationDefault01" class="label-required">
                 Materia
             </label>
-            <input
-                type="email"
-                
-                pInputText
-                placeholder="Materia"
-                class="form-control"
-            />
+            <p-dropdown
+              formControlName="idMateriaDocente"
+              [options]="Subjects"
+              optionLabel="name"
+              optionValue="code"
+              placeholder="Seleccione una opción"
+            ></p-dropdown>
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
             </div>

@@ -4,8 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 import { NotificationDto } from 'src/app/shared/models/notification-dto';
-import { DatePipe } from '@angular/common';
-import { environment } from 'src/environments/environment';
+import {DomSanitizer} from '@angular/platform-browser';
 import { SharedService } from 'src/app/core/services/shared/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -28,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private readonly _destroying$ = new Subject<void>();
   configService: any;
   display: boolean;
+  public imgUrl = '';
 
   registerForm!: FormGroup;
 
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     public translate: TranslateService,
     private sharedService: SharedService,
-    private router: Router,
+    public DomSanitizer: DomSanitizer,
     private storageService: StorageService,
     private formBuilder: FormBuilder
   ) {
@@ -51,6 +51,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.currentUserAplication = JSON.parse(localStorage.getItem('user'));
+    this.imgUrl = this.currentUserAplication.foto ? ('data:image/png;base64, ' + this.currentUserAplication.foto) : '../../../../assets/images/user.jpg';
   }
   logout() {
     this.storageService.logoutUser();

@@ -25,13 +25,13 @@
             <label for="validationDefault01" class="label-required">
                 Materia Relacionada
             </label>
-            <input
-                type="text"
-                pInputText
-                placeholder="Materia Relacionada"
-                class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && !IsValid('nombres') }"
-            />
+            <p-dropdown
+              formControlName="idMateria"
+              [options]="Subjects"
+              optionLabel="name"
+              optionValue="code"
+              placeholder="Seleccione una opción"
+            ></p-dropdown>
         </div>
     </div>
     <div class="row mx-0 mt-2">
