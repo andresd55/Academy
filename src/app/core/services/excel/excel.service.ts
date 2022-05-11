@@ -26,12 +26,18 @@ export class ExcelService {
   }
 
   exportPdf(columns, body, tittle) {
+    var img = new Image()
+    img.src = '../../../assets/images/Logo.png'
+    
     const doc = new jsPDF('p','pt');
+    doc.addImage(img, 'JPEG', 20, 0, 100, 100);
       autoTable(doc, {
+        startY: 90,
         columns: columns,
         body: body,
         didDrawPage: (dataArg) => { 
-        doc.text(tittle, dataArg.settings.margin.left, 30);
+          doc.text(tittle, doc.internal.pageSize.width / 2, 50, null, 'center');
+        // doc.text(tittle, dataArg.settings.margin.left, 30);
         }
       }); 
       doc.save(tittle + '.pdf');

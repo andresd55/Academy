@@ -40,42 +40,11 @@ export class FinalReportComponent implements OnInit {
   materiaEstudiante: any;
   student: any; 
 
-  Grades = [
-    {
-      code: '1',
-      name: 'Primero', 
-    },
-    {
-      code: '2',
-      name: 'Segundo', 
-    }
-  ];
+  Grades = [];
 
-  Courses = [
-    {
-      code: '1',
-      name: '1-A', 
-    },
-    {
-      code: '2',
-      name: '1-B', 
-    },
-    {
-      code: '3',
-      name: '1-C', 
-    }
-  ];
+  Courses = [];
 
-  Subjects = [
-    {
-      code: '1',
-      name: 'Calculo', 
-    },
-    {
-      code: '2',
-      name: 'Programacion', 
-    }
-  ];
+  Subjects = [];
 
   landscape = window.matchMedia("(orientation: landscape)");
 
@@ -92,9 +61,42 @@ export class FinalReportComponent implements OnInit {
  
   ngOnInit(): void {
     //From
+    this.getGrades();
+    this.getCourses();
+    this.getSubjects();
     this.getFormFilter();
     //Services
     this.getReport('');
+  }
+
+  getGrades() {
+    this.sharedService.getGrados().subscribe(
+      (response) => {
+        this.Grades = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getCourses() {
+    this.sharedService.getCursos().subscribe(
+      (response) => {
+        this.Courses = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getSubjects() {
+    this.sharedService.getMaterias().subscribe(
+      (response) => {
+        this.Subjects = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   filter() {
@@ -200,7 +202,7 @@ export class FinalReportComponent implements OnInit {
     this.notDownloadExcel = !(this.students.length > 0)!;
     if (this.students.length > 0) {
       if(type === 'PDF') {
-        this.excelService.exportPdf(columns, body, 'Estudiantes');
+        this.excelService.exportPdf(columns, body, 'Reporte Final De Estudiantes');
       } else {
         this.excelService.exportAsExcelFile(body, 'Resultado Busqueda');
       }

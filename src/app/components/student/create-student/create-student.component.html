@@ -28,8 +28,8 @@
             <p-dropdown
                     formControlName="idCurso"
                     [options]="Courses"
-                    optionLabel="name"
-                    optionValue="code"
+                    optionLabel="nombre"
+                    optionValue="idCurso"
                     placeholder="Seleccione una opción"
                     [ngClass]="{ 'is-invalid': submitted && !IsValid('idCurso') }"
                 ></p-dropdown>
@@ -62,8 +62,8 @@
             <p-dropdown
                     formControlName="idGrado"
                     [options]="Grades"
-                    optionLabel="name"
-                    optionValue="code"
+                    optionLabel="nombre"
+                    optionValue="idGrado"
                     placeholder="Seleccione una opción"
                     [ngClass]="{ 'is-invalid': submitted && !IsValid('idGrado') }"
                 ></p-dropdown>
@@ -137,9 +137,10 @@
             <p-dropdown
               formControlName="idMateriaDocente"
               [options]="Subjects"
-              optionLabel="name"
-              optionValue="code"
+              optionLabel="nombre"
+              optionValue="idMateria"
               placeholder="Seleccione una opción"
+              [ngClass]="{ 'is-invalid': submitted && !IsValid('idMateriaDocente') }"
             ></p-dropdown>
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
@@ -161,7 +162,7 @@
                         pButton
                         type="button"
                         label=""
-                        routerLink="/login"
+                        routerLink="/home"
                         class="ml-2 button button-secundary btn-sig"
                       >
                         Regresar

@@ -58,4 +58,22 @@ export class SharedService {
       `${environment.baseUrl.url}${environment.baseUrl.url}/Login`
     );
   }
+
+  getMaterias(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Materias` 
+    );
+  }
+
+  getCursos(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Cursos` 
+    );
+  }
+
+  getGrados(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Grados` 
+    );
+  }
 }

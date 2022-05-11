@@ -8,3 +8,9 @@
     margin-bottom: 16px;
     color: var(--color-black);
 }
+
+.p-tooltip.p-component.p-tooltip-left {
+    margin-left: 227px !important;
+    position: absolute !important;
+    margin-top: 8px !important;
+}

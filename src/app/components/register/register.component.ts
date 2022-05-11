@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
     return (this.registerFormLogin = this.formBuilder.group({
       nombres: ['', [Validators.required]],
       apellidos: ['', Validators.required],
-      correo: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
       foto: ['', Validators.required],
       genero: ['', Validators.required],
       usuario: ['', Validators.required],
@@ -152,6 +152,7 @@ export class RegisterComponent implements OnInit {
   public resetFiles() {
     this.f.foto.setValue('');
     $('#fotoName').val('');
+    $('#file1').val('');
 
     this.fileList.forEach((item, index) => {
           this.fileList.splice(index, 1);
@@ -159,6 +160,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async fileChanged(e) {
+    console.log('1');
     this.file = e.target.files[0];
     await this.upload(this.file.name, this.file, this.allowedFileTypes);
   }

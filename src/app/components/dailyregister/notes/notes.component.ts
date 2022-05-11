@@ -45,42 +45,11 @@ export class NotesComponent implements OnInit, AfterContentChecked {
   materiaEstudiante: any;
   student: any; 
 
-  Grades = [
-    {
-      code: '1',
-      name: 'Primero', 
-    },
-    {
-      code: '2',
-      name: 'Segundo', 
-    }
-  ];
+  Grades = [];
 
-  Courses = [
-    {
-      code: '1',
-      name: '1-A', 
-    },
-    {
-      code: '2',
-      name: '1-B', 
-    },
-    {
-      code: '3',
-      name: '1-C', 
-    }
-  ];
+  Courses = [];
 
-  Subjects = [
-    {
-      code: '1',
-      name: 'Calculo', 
-    },
-    {
-      code: '2',
-      name: 'Programacion', 
-    }
-  ];
+  Subjects = [];
 
   landscape = window.matchMedia("(orientation: landscape)");
 
@@ -101,7 +70,9 @@ export class NotesComponent implements OnInit, AfterContentChecked {
     this.getFormFails();
     this.getFormGrades();
     this.getFormComment();
-
+    this.getGrades();
+    this.getCourses();
+    this.getSubjects();
     //Services
     this.getStudents('');
   }
@@ -124,6 +95,36 @@ export class NotesComponent implements OnInit, AfterContentChecked {
       parameters += '&idCurso=0';
     }
     this.getStudents(parameters);
+  }
+
+  getGrades() {
+    this.sharedService.getGrados().subscribe(
+      (response) => {
+        this.Grades = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getCourses() {
+    this.sharedService.getCursos().subscribe(
+      (response) => {
+        this.Courses = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getSubjects() {
+    this.sharedService.getMaterias().subscribe(
+      (response) => {
+        this.Subjects = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   getStudents(parameters) {
@@ -154,21 +155,21 @@ export class NotesComponent implements OnInit, AfterContentChecked {
 
   getFormFails(){
     return (this.registerFormFails = this.formBuilder.group({
-      faltas: ['', Validators.required]
+      faltas: ['', [Validators.max(10), Validators.required]]
     }));
   }
 
   getFormGrades(){
     return (this.registerFormGrades = this.formBuilder.group({
-      nota1: ['', Validators.nullValidator],
-      nota2: ['', Validators.nullValidator],
-      nota3: ['', Validators.nullValidator]
+      nota1: ['', [Validators.max(10),Validators.nullValidator]],
+      nota2: ['', [Validators.max(10),Validators.nullValidator]],
+      nota3: ['', [Validators.max(10),Validators.nullValidator]]
     }));
   }
 
   getFormComment() {
     return (this.registerFormComment = this.formBuilder.group({
-      observation: ['', Validators.required]
+      observation: ['', [Validators.maxLength(1000), Validators.required]]
     }));
   }
 
@@ -293,7 +294,7 @@ export class NotesComponent implements OnInit, AfterContentChecked {
     this.notDownloadExcel = !(this.students.length > 0)!;
     if (this.students.length > 0) {
       if(type === 'PDF') {
-        this.excelService.exportPdf(columns, body, 'Estudiantes');
+        this.excelService.exportPdf(columns, body, 'Reporte De Estudiantes');
       } else {
         this.excelService.exportAsExcelFile(body, 'Resultado Busqueda');
       }

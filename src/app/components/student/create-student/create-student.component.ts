@@ -17,64 +17,50 @@ export class CreateStudentComponent implements OnInit {
   showError = false;
   submitted = false;
 
-  Grades = [
-    {
-      code: '1',
-      name: 'Sexto', 
-    },
-    {
-      code: '2',
-      name: 'Septimo', 
-    },
-    {
-      code: '3',
-      name: 'Octavo', 
-    },
-    {
-      code: '4',
-      name: 'Noveno', 
-    },
-    {
-      code: '5',
-      name: 'Decimo', 
-    },
-    {
-      code: '11',
-      name: 'Once', 
-    },
-  ];
+  Grades = [];
 
-  Courses = [
-    {
-      code: '1',
-      name: 'A', 
-    },
-    {
-      code: '2',
-      name: 'B', 
-    },
-    {
-      code: '3',
-      name: 'C', 
-    }
-  ];
+  Courses = [];
 
-  Subjects = [
-    {
-      code: '1',
-      name: 'Calculo', 
-    },
-    {
-      code: '2',
-      name: 'Programacion', 
-    }
-  ];
+  Subjects = [];
 
   constructor(private router: Router, private formBuilder: FormBuilder, 
     private sharedService: SharedService) { }
 
   ngOnInit(): void {
+    this.getGrades();
+    this.getCourses();
+    this.getSubjects();
     this.getFormLoginUser();
+  }
+
+  getGrades() {
+    this.sharedService.getGrados().subscribe(
+      (response) => {
+        this.Grades = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getCourses() {
+    this.sharedService.getCursos().subscribe(
+      (response) => {
+        this.Courses = response;
+      },
+      (error) => {
+      }
+    );
+  }
+
+  getSubjects() {
+    this.sharedService.getMaterias().subscribe(
+      (response) => {
+        this.Subjects = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   get f() {
@@ -85,7 +71,7 @@ export class CreateStudentComponent implements OnInit {
     return (this.registerFormLogin = this.formBuilder.group({
       nombres: ['', [Validators.required]],
       apellidos: ['', Validators.required],
-      correo: ['', Validators.required],
+      correo: ['', Validators.required, Validators.email],
       genero: ['', Validators.required],
       idGrado: ['', Validators.required],
       idCurso: ['', Validators.required],

@@ -66,8 +66,8 @@
                 <p-dropdown
                     formControlName="idGrado"
                     [options]="Grades"
-                    optionLabel="name"
-                    optionValue="code"
+                    optionLabel="nombre"
+                    optionValue="idGrado"
                     placeholder="Seleccione una opción"
                 ></p-dropdown>
             </div>
@@ -78,8 +78,8 @@
                 <p-dropdown
                     formControlName="idCurso"
                     [options]="Courses"
-                    optionLabel="name"
-                    optionValue="code"
+                    optionLabel="nombre"
+                    optionValue="idCurso"
                     placeholder="Seleccione una opción"
                 ></p-dropdown>
             </div>
@@ -90,8 +90,8 @@
             <p-dropdown
               formControlName="idMateria"
               [options]="Subjects"
-              optionLabel="name"
-              optionValue="code"
+              optionLabel="nombre"
+              optionValue="idMateria"
               placeholder="Seleccione una opción"
             ></p-dropdown>
           </div>
@@ -207,11 +207,12 @@
   >
     <div class="row">
       <div class="col-12 col-xl-12">
-        <label for="validationDefault01" class="label-required">
+        <label for="validationDefault01">
           Faltas del estudiante {{ student?.estudiante.nombres + ' ' + student?.estudiante.apellidos }}
         </label>
         <input
                 type="number"
+                max="10"
                 formControlName="faltas"
                 pInputText
                 placeholder="faltas"
@@ -263,6 +264,7 @@
         </label>
         <input
                 type="number"
+                max="10"
                 formControlName="nota1"
                 pInputText
                 placeholder="Nota 1"
@@ -280,6 +282,7 @@
                 type="number"
                 formControlName="nota2"
                 pInputText
+                max="10"
                 placeholder="Nota 2"
                 class="form-control"
             />
@@ -295,6 +298,7 @@
                 type="number"
                 formControlName="nota3"
                 pInputText
+                max="10"
                 placeholder="Nota 3"
                 class="form-control"
             />
