@@ -5,7 +5,7 @@
 </div>
 <div class="offset-2 col-8 panel">
     <div class="row mx-0">
-        <div class="col-6" [formGroup]="registerFormLogin">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Nombres
             </label>
@@ -20,8 +20,6 @@
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
             </div>
-        </div>
-        <div class="col-6" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Número curso
             </label>
@@ -37,9 +35,7 @@
                   Campo obligatorio 
                 </div>
         </div>
-    </div>
-    <div class="row mx-0 mt-2" [formGroup]="registerFormLogin">
-        <div class="col-6">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Apellidos
             </label>
@@ -55,7 +51,7 @@
               Campo obligatorio 
             </div>
         </div>
-        <div class="col-6" [formGroup]="registerFormLogin">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Grado
             </label>
@@ -71,9 +67,7 @@
                   Campo obligatorio 
                 </div>
         </div>
-    </div>
-    <div class="row mx-0 mt-2">
-        <div class="col-6" [formGroup]="registerFormLogin">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Correo
             </label>
@@ -89,12 +83,12 @@
               Campo obligatorio 
             </div>
         </div>
-        <div class="col-6" [formGroup]="registerFormLogin">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="" class="label-required">
                 Genero
             </label>
             <div class="row w-100">
-                <div class="col-12 col-md-6 mt-2">
+                <div class="col-12 col-lg-6 mt-2">
                     <input
                       type="radio"
                       value="M"
@@ -112,7 +106,7 @@
                     </div> 
                   </div>
             
-                  <div  class="col-12 col-md-6 mt-2">
+                  <div  class="col-12 col-lg-6 mt-2">
                     <input
                       type="radio"
                       value="F"
@@ -128,9 +122,7 @@
                   </div>
             </div>
         </div>
-    </div>
-    <div class="row mx-0 mt-2">
-        <div class="col-6" [formGroup]="registerFormLogin">
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Materia
             </label>
@@ -146,28 +138,32 @@
               Campo obligatorio 
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-lg-6 mt-2">
         </div>
-        <div class="col-12 text-right">
+        <div class="col-12 offset-md-6 col-lg-6 text-right">
+          <div class="row">
+            <div class="col-12 col-lg-6 mt-2">
             <button
                         pButton
                         type="button"
                         label=""
                         (click)="createStudent()"
-                        class="button button-primary btn-sig"
+                        class="button button-primary btn-sig w-100"
                       >
                         Aceptar
                       </button>
+                    </div>
+                    <div class="col-12 col-lg-6 mt-2 px-12">
                       <button
                         pButton
                         type="button"
                         label=""
                         routerLink="/home"
-                        class="ml-2 button button-secundary btn-sig"
+                        class="button button-secundary btn-sig w-100"
                       >
                         Regresar
                       </button>
-        </div>
+                    </div>
     </div>
 </div>
 

@@ -225,17 +225,25 @@
     </div>
 
     <ng-template pTemplate="footer">
-      <p-button
-        (click)="displayFails = false"
-        label="Cancelar"
-        styleClass="button button-secundary filter mr-2"
-      ></p-button>
-      <p-button
-        label="Aceptar"
-        type="submit"
-        [disabled]="registerFormFails.invalid"
-        styleClass="button button-primary filter"
-      ></p-button>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          class="w-100"
+          (click)="displayFails = false"
+          label="Cancelar"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6 mt-2">
+          <p-button
+          label="Aceptar"
+          type="submit"
+          class="w-100"
+          [disabled]="registerFormFails.invalid"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
     </ng-template>
   </p-dialog>
 </form>
@@ -258,7 +266,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-md-4 mt-2">
         <label for="validationDefault01">
           Nota 1
         </label>
@@ -274,7 +282,7 @@
               Campo obligatorio 
             </div>
       </div>
-      <div class="col">
+      <div class="col-12 col-md-4 mt-2">
         <label for="validationDefault01">
           Nota 2
         </label>
@@ -290,7 +298,7 @@
               Campo obligatorio 
             </div>
       </div>
-      <div class="col">
+      <div class="col-12 col-md-4 mt-2">
         <label for="validationDefault01">
           Nota 3
         </label>
@@ -309,17 +317,27 @@
     </div>
 
     <ng-template pTemplate="footer">
-      <p-button
-        (click)="displayGrades = false"
-        label="Cancelar"
-        styleClass="button button-secundary filter mr-2"
-      ></p-button>
-      <p-button
-        label="Aceptar"
-        type="submit"
-        [disabled]="registerFormGrades.invalid"
-        styleClass="button button-primary filter"
-      ></p-button>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          (click)="displayGrades = false"
+          label="Cancelar"
+          class="w-100 mt-2"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6">
+          <p-button
+          label="Aceptar"
+          type="submit"
+          class="w-100 mt-2"
+          [disabled]="registerFormGrades.invalid"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
+      
+      
     </ng-template>
   </p-dialog>
 </form>
@@ -351,17 +369,25 @@
     </div>
 
     <ng-template pTemplate="footer">
-      <p-button
-        (click)="displayComments = false"
-        label="Cancelar"
-        styleClass="button button-secundary filter mr-2"
-      ></p-button>
-      <p-button
-        label="Aceptar"
-        type="submit"
-        [disabled]="registerFormComment.invalid || indicatorButtonComment"
-        styleClass="button button-primary filter"
-      ></p-button>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          (click)="displayComments = false"
+          label="Cancelar"
+          class="mt-2"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6">
+          <p-button
+          label="Aceptar"
+          type="submit"
+          class="w-100 mt-2"
+          [disabled]="registerFormComment.invalid || indicatorButtonComment"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
     </ng-template>
   </p-dialog>
 </form>

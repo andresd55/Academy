@@ -71,7 +71,7 @@ export class CreateStudentComponent implements OnInit {
     return (this.registerFormLogin = this.formBuilder.group({
       nombres: ['', [Validators.required]],
       apellidos: ['', Validators.required],
-      correo: ['', Validators.required, Validators.email],
+      correo: ['', [Validators.required, Validators.email]],
       genero: ['', Validators.required],
       idGrado: ['', Validators.required],
       idCurso: ['', Validators.required],

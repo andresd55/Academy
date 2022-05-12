@@ -8745,3 +8745,8 @@ input {
   height: 40px !important;
   border-radius: 10px !important;
 }
+
+.px-12 {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
