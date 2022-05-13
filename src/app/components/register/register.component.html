@@ -85,18 +85,23 @@
               Campo obligatorio 
             </div>
         </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="validationDefault01" class="label-required">
-                Contraseña
-            </label>
+        <div class="col-12 col-lg-6  text-right mt-2" [formGroup]="registerFormLogin">
+          <div class="w-100">
+            <label for="validationDefault01" class="label-required w-100 text-left">
+              Contraseña
+          </label>
+          </div>
             <input
                 type="password"
                 formControlName="password"
                 pInputText
                 placeholder="Contraseña"
+                #password
                 class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && !IsValid('password') }"
             />
+            <em (click)="password.type=password.type=='password'?'text':'password'" class="fa eye-login"
+                    [ngClass]="(password.type=='password')?' fa-eye':' fa-eye-slash'"></em>
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
             </div>

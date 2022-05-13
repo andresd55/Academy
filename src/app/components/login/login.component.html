@@ -38,18 +38,23 @@
                     </div>
                   </div>
             
-                  <div class="col-12 mt-2  p-0" [formGroup]="registerFormLogin">
-                    <label class="label-required">
+                  <div class="col-12 mt-2 text-right p-0" [formGroup]="registerFormLogin">
+                    <div class="w-100">
+                    <label class="label-required text-left w-100">
                       Contraseña
                     </label>
+                  </div>
                     <input
                       formControlName="password"
                       type="password"
                       pInputText
+                      #password
                       placeholder="Contraseña"
                       class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && !IsValid('password') }"
                     />
+                    <em (click)="password.type=password.type=='password'?'text':'password'" class="fa eye-login"
+                    [ngClass]="(password.type=='password')?' fa-eye':' fa-eye-slash'"></em>
                     <div class="invalid-feedback mb-2">
                       Campo obligatorio 
                     </div>
