@@ -34,16 +34,7 @@ export class RegisterComponent implements OnInit {
   showErrorText = "";
   submitted = false;
 
-  Subjects = [
-    {
-      code: '1',
-      name: 'Calculo', 
-    },
-    {
-      code: '2',
-      name: 'Programacion', 
-    }
-  ];
+  Subjects = [];
 
   constructor(private router: Router, private formBuilder: FormBuilder, 
     private sharedService: SharedService) { }
@@ -51,6 +42,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.getFormLoginUser();
     this.configUploadFiles();
+    this.getSubjects();
+  }
+
+  getSubjects() {
+    this.sharedService.getMaterias().subscribe(
+      (response) => {
+        this.Subjects = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   configUploadFiles() {
