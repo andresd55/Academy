@@ -1,0 +1,14 @@
+.tittle {
+    margin-top: 68px;
+  }
+
+  .w-300 {
+    width: 300px;
+  }
+
+  .eye-login {
+    margin-top: -27px;
+    margin-left: -32px;
+    position: absolute;
+    cursor: pointer;
+}

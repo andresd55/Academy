@@ -1,0 +1,98 @@
+<nav class="navbar">
+  <a href="#" class="sidebar-toggler">
+    <em class="fas fa-bars"></em>
+  </a>
+  <div class="navbar-content">
+    <ul class="navbar-nav">
+
+      <li class="nav-item dropdown nav-profile">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="profileDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img src="../../../../assets/images/Log_out.svg" alt="profile" />
+        </a>
+        <div class="dropdown-menu" aria-labelledby="profileDropdown">
+          <div class="dropdown-header d-flex flex-column align-items-center">
+            <div class="info text-center">
+              <img [src]="DomSanitizer.bypassSecurityTrustUrl(imgUrl)" class="profile m-0" alt="profile" />
+              <p class="name font-weight-bold mb-0">
+                {{currentUserAplication.nombre}}
+              </p>
+              <p class="email text-muted mb-3">
+                ({{currentUserAplication.usuario}})
+              </p>
+              <p class="email text-muted mb-3">
+                {{currentUserAplication.email}}
+              </p>
+            </div>
+          </div>
+          <div class="dropdown-body">
+            <ul class="profile-nav p-0 pt-3">
+              <li class="nav-item">
+                <a href="javascript:;" (click)="logout()" class="nav-link">
+                  <i data-feather="log-out"></i>
+                  <span>Cerrar Sesión</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<p-dialog
+  [(visible)]="display"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '500px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <em class="far fa-check-circle font50"></em>
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>
+        <b>{{ notificationActive?.Tittle }}</b>
+      </p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>{{ notificationActive?.Message }}</p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center mt-16">
+      <div class="row">
+        <div class="col-6">
+          <p-button
+            (click)="display = false"
+            label="{{ 'general.btnCancel' | translate }}"
+            styleClass="button button-secundary continue mr-16 w-100"
+          ></p-button>
+        </div>
+        <div class="col-6">
+          <a
+            href="{{ notificationActive?.Url }}"
+            rel="noopener noreferrer"
+            type="button"
+            class="button button-primary button-save w-100"
+          >
+            {{ 'general.btnGo' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-dialog>
