@@ -1,0 +1,6 @@
+namespace ACademyApi.Areas.HelpPage.ModelDescriptions
+{
+    public class DictionaryModelDescription : KeyValuePairModelDescription
+    {
+    }
+}

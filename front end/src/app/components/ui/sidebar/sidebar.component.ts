@@ -53,6 +53,25 @@ export class SidebarComponent implements OnInit, AfterContentInit {
             rute: "final_report"
           }
         ]
+      },
+      {
+        label: "Parametrización",
+        id: "param",
+        icon: "fas fa-cubes",
+        subMenu: [
+          {
+            label: "Materias",
+            rute: "materias"
+          },
+          {
+            label: "Cursos",
+            rute: "cursos"
+          },
+          {
+            label: "Grados",
+            rute: "grados"
+          }
+        ]
       }
     ];
   }

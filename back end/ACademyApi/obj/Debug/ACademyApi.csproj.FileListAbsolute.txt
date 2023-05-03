@@ -1,0 +1,200 @@
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csc.exe
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csc.exe.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csc.rsp
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csi.exe
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csi.exe.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\csi.rsp
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.AppContext.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Console.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.IO.Compression.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Net.Http.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Net.Sockets.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.ValueTuple.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Xml.XPath.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\vbc.exe
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\vbc.exe.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\vbc.rsp
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Control.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Antlr3.Runtime.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\EntityFramework.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\EntityFramework.SqlServer.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Newtonsoft.Json.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Net.Http.Formatting.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Cors.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Helpers.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.Cors.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.WebHost.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Mvc.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Optimization.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Razor.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.Deployment.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.Razor.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\WebGrease.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Datos.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Control.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Control.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\EntityFramework.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\EntityFramework.SqlServer.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Net.Http.Formatting.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.Cors.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Newtonsoft.Json.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Helpers.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Http.WebHost.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Mvc.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Optimization.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.Razor.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.Deployment.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\System.Web.WebPages.Razor.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Antlr3.Runtime.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Datos.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\bin\ACademyApi_Datos.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\obj\Debug\ACademyApi.csproj.AssemblyReference.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\obj\Debug\ACademyApi.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\obj\Debug\ACademyApi.csproj.CopyComplete
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\obj\Debug\ACademyApi.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi\obj\Debug\ACademyApi.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csc.exe
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csc.exe.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csc.rsp
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csi.exe
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csi.exe.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\csi.rsp
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.AppContext.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Console.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Globalization.Calendars.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.IO.Compression.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Net.Http.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Net.Sockets.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.ValueTuple.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Xml.XPath.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\vbc.exe
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\vbc.exe.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\vbc.rsp
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\VBCSCompiler.exe
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Control.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Entidades.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Antlr3.Runtime.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\EntityFramework.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\EntityFramework.SqlServer.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Microsoft.Web.Infrastructure.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Newtonsoft.Json.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Net.Http.Formatting.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Cors.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Helpers.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.Cors.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.WebHost.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Mvc.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Optimization.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Razor.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.Deployment.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.Razor.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\WebGrease.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Datos.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Control.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Control.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Entidades.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\EntityFramework.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\EntityFramework.SqlServer.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Net.Http.Formatting.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.Cors.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Newtonsoft.Json.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Helpers.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Http.WebHost.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Mvc.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Optimization.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.Razor.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.Deployment.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\System.Web.WebPages.Razor.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Antlr3.Runtime.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Datos.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi\bin\ACademyApi_Datos.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi\obj\Debug\ACademyApi.csproj.AssemblyReference.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi\obj\Debug\ACademyApi.csproj.CoreCompileInputs.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi\obj\Debug\ACademyApi.csproj.CopyComplete
+C:\Repos\ACademy\Academy\back end\ACademyApi\obj\Debug\ACademyApi.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi\obj\Debug\ACademyApi.pdb

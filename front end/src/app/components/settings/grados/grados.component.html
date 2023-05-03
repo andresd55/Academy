@@ -1,0 +1,326 @@
+<p-breadcrumb
+  [model]="itemsBreadcrumb"
+  [tittle]="'Parametrización de grados'"
+  [description]="'Aqui puede parametrizar los diferentes grados de la institución'"
+></p-breadcrumb>
+
+<div class="row mb-2">    
+  <div class="col-12 col-md-6 mt-2">
+    <app-search-selector-principal
+      placeholder="Búsqueda rapida"
+      icon="pi pi-search"
+    ></app-search-selector-principal>
+  </div>
+  <div class="col-12 col-md-4 mt-2 text-right ">
+    <div class="d-flex fr">
+        <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Excel"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class="mr-2"
+        (click)="exportAs('Excel')"
+      ></app-button-icon-finotex>
+      <app-button-icon-finotex
+        icon="fas fa-download"
+        label="Pdf"
+        type="button"
+        typeButton="secondary"
+        [typeSize]="false"
+        class=""
+        (click)="exportAs('PDF')"
+      ></app-button-icon-finotex>
+    </div>
+    </div>
+    <div class="col-12 col-md-2 mt-2 text-right ">
+        <div class="w-100">
+          <app-button-icon-finotex
+            icon="fas fa-plus"
+            label="Nuevo"
+            type="button"
+            typeButton="secondary"
+            [typeSize]="false"
+            class=""
+            (click)="showPanelInsert()"
+          ></app-button-icon-finotex>
+        </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 pr-0">
+    <div style="overflow-x:auto;">
+    <p-table [data]="Grades" id="allTable" class="table f-table" style="width: 100%">
+    <tr theaderRecords>
+          <th>Nombre</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+        <tr tbodyRecords *ngFor="let grade of Grades">
+          <td>{{ grade.nombre }}</td>
+          <td class="text-center">
+            <button
+              (click)="showPanelUpdate(grade)"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-edit"
+              class="p-button-rounded p-button-text mr-2"
+              pTooltip="Modificar"
+            ></button>
+            <button
+              (click)="showPanelDelete(grade)"
+              pButton
+              pRipple
+              type="button"
+              icon="fas fa-trash"
+              class="p-button-rounded p-button-text mr-2"
+              pTooltip="Eliminar"
+            ></button>
+          </td>
+        </tr>
+    </p-table>
+  </div>
+  </div>
+  <div class="col-12">
+    <p-paginator
+      [rows]="10"
+      [columnsSeparate]="false"
+      [rowsPerPageOptions]="[10, 20, 30]"
+      (onPageChange)="paginate($event)"
+      [totalRecords]="totalRecords"
+    ></p-paginator>
+  </div>
+</div>
+
+<form [formGroup]="insertForm" (ngSubmit)="onSubmitInsert()">
+  <p-dialog
+    header="Nuevo grado"
+    [(visible)]="displayInsert"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01">
+          Nombre del grado
+        </label>
+        <input
+                type="text"
+                max="10"
+                formControlName="nombre"
+                pInputText
+                placeholder="nombre"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          class="w-100"
+          (click)="displayInsert = false"
+          label="Cancelar"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6">
+          <p-button
+          label="Aceptar"
+          type="submit"
+          class="w-100"
+          [disabled]="insertForm.invalid"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<form [formGroup]="updateForm" (ngSubmit)="onSubmitUpdate()">
+  <p-dialog
+    header="Modificar grado '{{grado?.nombre}}'"
+    [(visible)]="displayUpdate"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01">
+          Nombre del grado
+        </label>
+        <input
+                type="text"
+                max="10"
+                formControlName="nombre"
+                pInputText
+                placeholder="nombre"
+                class="form-control"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          class="w-100"
+          (click)="displayUpdate = false"
+          label="Cancelar"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6">
+          <p-button
+          label="Aceptar"
+          type="submit"
+          class="w-100"
+          [disabled]="updateForm.invalid"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</form>
+
+<p-dialog
+    header="Eliminar grado '{{grado?.nombre}}'"
+    [(visible)]="displayDelete"
+    [modal]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '60vw' }"
+  >
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <label for="validationDefault01">
+          Esta seguro que desea eliminar el grado '{{grado?.nombre}}'?
+        </label>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p-button
+          class="w-100"
+          (click)="displayDelete = false"
+          label="Cancelar"
+          styleClass="button button-secundary filter w-100"
+        ></p-button>
+        </div>
+        <div class="col-12 col-md-6">
+          <p-button
+          label="Aceptar"
+          type="button"
+          (click)="deleteGrade(grado.idGrado)"
+          class="w-100"
+          styleClass="button button-primary filter w-100"
+        ></p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+
+<p-dialog
+  [(visible)]="displayConfirmComment"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '450px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/success.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>El registro se ha guardado de forma exitosa!!</p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>
+        Para continuar de click en Aceptar
+      </p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="closeConfirmation()"
+        label="Aceptar"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="displayConfirmDelete"
+  [contentStyleClass]="'border-top'"
+  [modal]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [showHeader]="false"
+  [resizable]="false"
+  [style]="{ width: '450px' }"
+>
+  <div class="row">
+    <div class="col-md-12 text-center font50">
+      <img
+        _ngcontent-amv-c221=""
+        width="60px"
+        height="60px"
+        src="../../../assets/images/success.svg"
+        alt="shopping cart"
+        class="simple-img"
+        appImage
+      />
+    </div>
+    <div class="col-md-12 text-center mt-24">
+      <p>El registro se ha eliminado de forma exitosa!!</p>
+    </div>
+    <div class="col-md-12 text-center mt-16 description-page">
+      <p>
+        Para continuar de click en Aceptar
+      </p>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="col-md-12 text-center">
+      <p-button
+        (click)="displayConfirmDelete = false"
+        label="Aceptar"
+        styleClass="button button-primary text-center"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>
+<p-toast></p-toast>

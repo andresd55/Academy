@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ACademy-Web.config Connection String" description="ACademy Connection String used in web.config by the application to access the database." defaultValue="Data Source=academy-db.database.windows.net;Initial Catalog=ACademyDB;User ID=academy;Password=Desarrollo123;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\oscar\\source\\repos\\ACademyApi\\ACademyApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ACademy']/@connectionString" />
+  </parameter>
+</parameters>

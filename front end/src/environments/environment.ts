@@ -5,7 +5,7 @@ export const environment = {
   pageLenghtCard: 5,
   refreshTokenTime:300000,
   baseUrl: {
-    url: "https://academyapiservice.azurewebsites.net/api"
+    url: "https://localhost:44366/api"
   },
   methods: {
     Sketch: "SalesDev/api/V1",

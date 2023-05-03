@@ -89,6 +89,9 @@ import { TableModule } from 'src/app/shared/framework-ui/primeng/table/table';
 import { DatepickerComponentModule } from 'src/app/shared/framework-ui/custom/datepicker/datepicker.component';
 import { MultiSelectModule } from 'src/app/shared/framework-ui/primeng/multiselect/public_api';
 import { ButtonFinotexModule } from 'src/app/shared/framework-ui/custom/button-finotex/button-finotex.component';
+import { CursosComponent } from '../settings/cursos/cursos.component';
+import { GradosComponent } from '../settings/grados/grados.component';
+import { MateriasComponent } from '../settings/materias/materias.component';
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -107,7 +110,10 @@ export function httpTranslateLoader(http: HttpClient) {
     ImageDirective,
     CreateStudentComponent,
     NotesComponent, 
-    FinalReportComponent
+    FinalReportComponent,
+    CursosComponent,
+    GradosComponent,
+    MateriasComponent
   ],
   imports: [
     CommonModule,

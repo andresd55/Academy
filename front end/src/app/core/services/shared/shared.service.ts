@@ -59,21 +59,81 @@ export class SharedService {
     );
   }
 
-  getMaterias(): Observable<any> {
-    return this.http.get<any>(
-      `${environment.baseUrl.url}/Materias` 
-    );
-  }
-
   getCursos(): Observable<any> {
     return this.http.get<any>(
       `${environment.baseUrl.url}/Cursos` 
     );
   }
 
+  createCourse(body): Observable<any> {
+    return this.http.post<any>(
+      `${environment.baseUrl.url}/Cursos`,
+      body
+    );
+  }
+
+  updateCourse(body): Observable<any> {
+    return this.http.put<any>(
+      `${environment.baseUrl.url}/Cursos`,
+      body
+    );
+  }
+
+  deleteCourse(id): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.baseUrl.url}/Cursos/${id}`
+    );
+  }
+
   getGrados(): Observable<any> {
     return this.http.get<any>(
       `${environment.baseUrl.url}/Grados` 
+    );
+  }
+
+  createGrade(body): Observable<any> {
+    return this.http.post<any>(
+      `${environment.baseUrl.url}/Grados`,
+      body
+    );
+  }
+
+  updateGrade(body): Observable<any> {
+    return this.http.put<any>(
+      `${environment.baseUrl.url}/Grados`,
+      body
+    );
+  }
+
+  deleteGrade(id): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.baseUrl.url}/Grados/${id}`
+    );
+  }
+
+  getMaterias(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Materias` 
+    );
+  }
+
+  createMateria(body): Observable<any> {
+    return this.http.post<any>(
+      `${environment.baseUrl.url}/Materias`,
+      body
+    );
+  }
+
+  updateMateria(body): Observable<any> {
+    return this.http.put<any>(
+      `${environment.baseUrl.url}/Materias`,
+      body
+    );
+  }
+
+  deleteMateria(id): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.baseUrl.url}/Materias/${id}`
     );
   }
 }

@@ -1,0 +1,38 @@
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Control.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Control.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Control.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Datos.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\EntityFramework.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\Newtonsoft.Json.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Datos.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Datos.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\EntityFramework.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\bin\Debug\Newtonsoft.Json.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.AssemblyReference.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.CopyComplete
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\obj\Debug\ACademyApi_Control.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Control\obj\Debug\ACademyApi_Control.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Control.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Control.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Control.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Datos.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Entidades.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\EntityFramework.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Datos.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Datos.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\ACademyApi_Entidades.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\EntityFramework.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.AssemblyReference.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.CoreCompileInputs.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\obj\Debug\ACademyApi_Control.csproj.CopyComplete
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\obj\Debug\ACademyApi_Control.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Control\obj\Debug\ACademyApi_Control.pdb

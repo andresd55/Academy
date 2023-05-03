@@ -1,0 +1,18 @@
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Debug\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Debug\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Debug\Newtonsoft.Json.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Debug\Newtonsoft.Json.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.CopyComplete
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.AssemblyReference.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\bin\Debug\ACademyApi_Entidades.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\bin\Debug\ACademyApi_Entidades.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.AssemblyReference.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.CoreCompileInputs.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.csproj.CopyComplete
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Entidades\obj\Debug\ACademyApi_Entidades.pdb

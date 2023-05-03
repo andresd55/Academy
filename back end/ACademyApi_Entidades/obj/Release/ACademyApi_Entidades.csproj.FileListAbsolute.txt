@@ -1,0 +1,9 @@
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Release\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Release\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Release\Newtonsoft.Json.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\bin\Release\Newtonsoft.Json.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Release\ACademyApi_Entidades.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Release\ACademyApi_Entidades.csproj.CopyComplete
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Release\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Release\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Entidades\obj\Release\ACademyApi_Entidades.csproj.AssemblyReference.cache

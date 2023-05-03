@@ -1,0 +1,40 @@
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.dll.config
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\ACademyApi_Entidades.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\EntityFramework.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\ACademyApi_Entidades.pdb
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\EntityFramework.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.AssemblyReference.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Initial.resources
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Estudiantes.resources
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Materias.resources
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.GenerateResource.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.CopyComplete
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.dll
+C:\Users\oscar\source\repos\ACademyApi\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.dll.config
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\ACademyApi_Datos.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\ACademyApi_Entidades.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\EntityFramework.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\ACademyApi_Entidades.pdb
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\EntityFramework.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.AssemblyReference.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Initial.resources
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Estudiantes.resources
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.Migrations.Materias.resources
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.GenerateResource.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.CoreCompileInputs.cache
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.csproj.CopyComplete
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.dll
+C:\Repos\ACademy\Academy\back end\ACademyApi_Datos\obj\Debug\ACademyApi_Datos.pdb
