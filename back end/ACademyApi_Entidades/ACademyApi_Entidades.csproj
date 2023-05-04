@@ -45,8 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Rol.cs" />
     <Compile Include="Database\Curso.cs" />
-    <Compile Include="Database\Docente.cs" />
+    <Compile Include="Database\Usuario.cs" />
     <Compile Include="Database\Estudiante.cs" />
     <Compile Include="Database\Grado.cs" />
     <Compile Include="Database\Materia.cs" />
@@ -54,7 +55,7 @@
     <Compile Include="Database\MateriaEstudiante.cs" />
     <Compile Include="Entidades\FiltrosConsulta.cs" />
     <Compile Include="Entidades\GrillaReporteAcademico.cs" />
-    <Compile Include="Entidades\RegistroDocente.cs" />
+    <Compile Include="Entidades\RegistroUsuario.cs" />
     <Compile Include="Entidades\RegistroEstudiante.cs" />
     <Compile Include="Entidades\RegistroMateriaDocente.cs" />
     <Compile Include="Entidades\RegistroMateriaEstudiante.cs" />

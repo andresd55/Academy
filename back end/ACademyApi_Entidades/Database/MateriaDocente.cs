@@ -23,7 +23,7 @@ namespace ACademyApi_Entidades.Database
 
         [ForeignKey("idDocente")]
         [JsonIgnore]
-        public virtual Docente docente { get; set; }
+        public virtual Usuario docente { get; set; }
 
         [JsonIgnore]
         public virtual List<MateriaEstudiante> materiaEstudiante { get; set; }

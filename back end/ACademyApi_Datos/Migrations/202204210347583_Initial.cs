@@ -8,10 +8,10 @@ namespace ACademyApi_Datos.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Docente",
+                "dbo.Usuario",
                 c => new
                     {
-                        idDocente = c.Int(nullable: false, identity: true),
+                        idUsuario = c.Int(nullable: false, identity: true),
                         nombres = c.String(),
                         apellidos = c.String(),
                         correo = c.String(),
@@ -20,13 +20,13 @@ namespace ACademyApi_Datos.Migrations
                         usuario = c.String(),
                         password = c.String(),
                     })
-                .PrimaryKey(t => t.idDocente);
+                .PrimaryKey(t => t.idUsuario);
             
         }
         
         public override void Down()
         {
-            DropTable("dbo.Docente");
+            DropTable("dbo.Usuario");
         }
     }
 }

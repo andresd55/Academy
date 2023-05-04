@@ -19,7 +19,7 @@ namespace ACademyApi_Control.Controller.Login
 
         public ResponseLogin ValidarUsuario(UserLogin user)
         {
-            var login = _db.Docente.Where(x => x.usuario == user.username && x.password == user.password)
+            var login = _db.Usuario.Where(x => x.usuario == user.username && x.password == user.password)
                 .Select(x => new ResponseLogin() {
                     nombre = (x.nombres + " "+x.apellidos).Trim(),
                     usuario = x.usuario,

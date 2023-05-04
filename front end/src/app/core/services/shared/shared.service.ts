@@ -22,7 +22,7 @@ export class SharedService {
 
   registerTeacher(body): Observable<ResponseBase> {
     return this.http.post<ResponseBase>(
-      `${environment.baseUrl.url}/Docentes`,
+      `${environment.baseUrl.url}/Usuarios`,
       body
     );
   }
@@ -56,6 +56,12 @@ export class SharedService {
   ​zoneIdSalesExecutiveGroupIdGet(countryId: any, securityUsersId: any): Observable<ResponseBase> { 
     return this.http.get<ResponseBase>(
       `${environment.baseUrl.url}${environment.baseUrl.url}/Login`
+    );
+  }
+
+  getRoles(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Roles` 
     );
   }
 

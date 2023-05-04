@@ -22,6 +22,6 @@ namespace ACademyApi_Entidades.Entidades
 
         public int idCurso { get; set; }
 
-        public int idMateriaDocente { get; set; }
+        public int[] arrayIdMateriasDocente { get; set; }
     }
 }

@@ -35,6 +35,8 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   Subjects = [];
+  Roles = [];
+
 
   constructor(private router: Router, private formBuilder: FormBuilder, 
     private sharedService: SharedService) { }
@@ -43,6 +45,17 @@ export class RegisterComponent implements OnInit {
     this.getFormLoginUser();
     this.configUploadFiles();
     this.getSubjects();
+    this.getRoles();
+  }
+
+  getRoles() {
+    this.sharedService.getRoles().subscribe(
+      (response) => {
+        this.Roles = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   getSubjects() {
@@ -105,14 +118,15 @@ export class RegisterComponent implements OnInit {
 
   private getFormLoginUser() {
     return (this.registerFormLogin = this.formBuilder.group({
+      idRol: ['', [Validators.required]],
       nombres: ['', [Validators.required]],
       apellidos: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
-      foto: ['', Validators.required],
+      foto: [''],
       genero: ['', Validators.required],
       usuario: ['', Validators.required],
       password: ['', Validators.required],
-      idMateria: ['', Validators.required],
+      arrayIdMaterias: ['', Validators.required]
     }));
   }
 
@@ -138,7 +152,6 @@ export class RegisterComponent implements OnInit {
           this.showErrorText = error.error.message;
         }
       );
-     
     }
   }
 

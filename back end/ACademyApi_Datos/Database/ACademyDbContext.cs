@@ -14,7 +14,8 @@ namespace ACademyApi_Datos.Database
         {
         }
         public virtual DbSet<Curso> Curso { get; set; }
-        public virtual DbSet<Docente> Docente { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Estudiante> Estudiante { get; set; }
         public virtual DbSet<Grado> Grado { get; set; }
         public virtual DbSet<Materia> Materia { get; set; }

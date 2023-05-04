@@ -7,6 +7,38 @@
     <div class="row mx-0" >
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01"  class="label-required">
+                Tipo de usuario
+            </label>
+            <p-dropdown
+              formControlName="idRol"
+              [options]="Roles"
+              optionLabel="nombre"
+              optionValue="idRol"
+              placeholder="Seleccione una opción"
+              [ngClass]="{ 'is-invalid': submitted && !IsValid('idRol') }"
+            ></p-dropdown>
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
+                Materias Relacionadas
+            </label>
+            <p-multiSelect
+              formControlName="arrayIdMaterias"
+              [options]="Subjects"
+              optionLabel="nombre"
+              optionValue="idMateria"
+              placeholder="Seleccione una opción"
+              [ngClass]="{ 'is-invalid': submitted && !IsValid('arrayIdMaterias') }"
+            ></p-multiSelect>
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
+            <label for="validationDefault01"  class="label-required">
                 Nombres
             </label>
             <input
@@ -17,22 +49,6 @@
                 class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && !IsValid('nombres') }"
             />
-            <div class="invalid-feedback mb-2">
-              Campo obligatorio 
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="validationDefault01" class="label-required">
-                Materia Relacionada
-            </label>
-            <p-dropdown
-              formControlName="idMateria"
-              [options]="Subjects"
-              optionLabel="nombre"
-              optionValue="idMateria"
-              placeholder="Seleccione una opción"
-              [ngClass]="{ 'is-invalid': submitted && !IsValid('idMateria') }"
-            ></p-dropdown>
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
             </div>
@@ -109,7 +125,7 @@
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <div class="row">
                 <div class="col-12 pl-0 pr-0">
-                  <label class="label-required">
+                  <label class="label">
                     Foto de perfil
                   </label>
                   <em

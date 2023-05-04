@@ -172,7 +172,8 @@
     <Compile Include="Controllers\Parametrizacion\CursosController.cs" />
     <Compile Include="Controllers\Parametrizacion\GradosController.cs" />
     <Compile Include="Controllers\Parametrizacion\MateriasController.cs" />
-    <Compile Include="Controllers\Registro\DocentesController.cs" />
+    <Compile Include="Controllers\Registro\RolesController.cs" />
+    <Compile Include="Controllers\Registro\UsuariosController.cs" />
     <Compile Include="Controllers\Registro\EstudiantesController.cs" />
     <Compile Include="Controllers\Registro\MateriaEstudianteController.cs" />
     <Compile Include="Controllers\Reportes\ReportesController.cs" />

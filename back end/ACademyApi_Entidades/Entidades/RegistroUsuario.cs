@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ACademyApi_Entidades.Entidades
 {
-    public class RegistroDocente
+    public class RegistroUsuario
     {
-        public int idDocente { get; set; }
+        public int idUsuario { get; set; }
 
         public string nombres { get; set; }
 
@@ -23,9 +23,9 @@ namespace ACademyApi_Entidades.Entidades
         public string usuario { get; set; }
 
         public string password { get; set; }
-
-        public int idMateriaDocente { get; set; }
         
-        public int idMateria { get; set; }
+        public int[] arrayIdMaterias { get; set; }
+
+        public int idRol { get; set; }
     }
 }

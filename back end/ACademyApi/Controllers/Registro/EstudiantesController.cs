@@ -93,20 +93,23 @@ namespace ACademyApi.Controllers.Registro
             _control.PostEstudiantes(estudiante);
             _control.SaveChange();
 
-            var materiaEstudiante = _controlMateriaEstudiante.MapeoRegistroMateriaEstudiante(new
-                RegistroMateriaEstudiante()
+            foreach (int idMateriaDocente in registroEstudiante.arrayIdMateriasDocente)
             {
-                idMateriaEstudiante = 0,
-                idEstudiante = estudiante.idEstudiante,
-                idMateriaDocente = registroEstudiante.idMateriaDocente,
-                faltas = 0,
-                nota1 = 0,
-                nota2 = 0,
-                nota3 = 0,
-                observacion = string.Empty
-            });
-            _controlMateriaEstudiante.PostMateriaEstudiante(materiaEstudiante);
-            _controlMateriaEstudiante.SaveChange();
+                var materiaEstudiante = _controlMateriaEstudiante.MapeoRegistroMateriaEstudiante(new
+                RegistroMateriaEstudiante()
+                {
+                    idMateriaEstudiante = 0,
+                    idEstudiante = estudiante.idEstudiante,
+                    idMateriaDocente = idMateriaDocente,
+                    faltas = 0,
+                    nota1 = 0,
+                    nota2 = 0,
+                    nota3 = 0,
+                    observacion = string.Empty
+                });
+                _controlMateriaEstudiante.PostMateriaEstudiante(materiaEstudiante);
+                _controlMateriaEstudiante.SaveChange();
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = estudiante.idEstudiante }, estudiante);
         }
