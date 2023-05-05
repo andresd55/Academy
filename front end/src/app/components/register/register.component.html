@@ -85,22 +85,6 @@
               Campo obligatorio 
             </div>
         </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="validationDefault01" class="label-required">
-                Correo
-            </label>
-            <input
-                type="email"
-                formControlName="correo"
-                pInputText
-                placeholder="Correo"
-                class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && !IsValid('correo') }"
-            />
-            <div class="invalid-feedback mb-2">
-              Campo obligatorio 
-            </div>
-        </div>
         <div class="col-12 col-lg-6  text-right mt-2" [formGroup]="registerFormLogin">
           <div class="w-100">
             <label for="validationDefault01" class="label-required w-100 text-left">
@@ -123,53 +107,20 @@
             </div>
         </div>
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <div class="row">
-                <div class="col-12 pl-0 pr-0">
-                  <label class="label">
-                    Foto de perfil
-                  </label>
-                  <em
-                    class="fas fa-info-circle ml-1"
-                    pTooltip="Debe cargar una foto en los siguientes formatos: (JPG, PNG)"
-                  ></em>
-                </div>
-                <div class="col-12 pl-0 pr-0" [formGroup]="registerFormLogin">
-                  <input
-                    type="text"
-                    id="fotoName"
-                    pInputText
-                    class="form-control input-select-image"
-                    placeholder="Arrastre la imagen aqui"
-                    readonly
-                    [ngClass]="{ 'is-invalid': submitted && !IsValid('foto') }"
-                  />
-                  <div class="invalid-feedback mb-2">
-                    Campo obligatorio 
-                  </div>
-                </div>
-                <div class="col-12 pl-0 pr-0 mt-1 text-right">
-                  <button
-                    pButton
-                    (click)="resetFiles()"
-                    type="button"
-                    label="Limpiar"
-                    class="button-select-image-reset mr-1"
-                  ></button>
-                  <input
-                    type="file"
-                    name="file1"
-                    id="file1"
-                    (change)="fileChanged($event)"
-                  />
-                  <button
-                    pButton
-                    type="button"
-                    id="btnupload"
-                    label="Cargar"
-                    class="button-select-image-update"
-                  ></button>
-                </div>
-              </div>
+            <label for="validationDefault01" class="label-required">
+                Correo
+            </label>
+            <input
+                type="email"
+                formControlName="correo"
+                pInputText
+                placeholder="Correo"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('correo') }"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
         </div>
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="" class="label-required">
@@ -210,6 +161,55 @@
                   </div>       
             </div>
         </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
+          <div class="row">
+              <div class="col-12 pl-0 pr-0">
+                <label class="label">
+                  Foto de perfil
+                </label>
+                <em
+                  class="fas fa-info-circle ml-1"
+                  pTooltip="Debe cargar una foto en los siguientes formatos: (JPG, PNG)"
+                ></em>
+              </div>
+              <div class="col-12 pl-0 pr-0" [formGroup]="registerFormLogin">
+                <input
+                  type="text"
+                  id="fotoName"
+                  pInputText
+                  class="form-control input-select-image"
+                  placeholder="Arrastre la imagen aqui"
+                  readonly
+                  [ngClass]="{ 'is-invalid': submitted && !IsValid('foto') }"
+                />
+                <div class="invalid-feedback mb-2">
+                  Campo obligatorio 
+                </div>
+              </div>
+              <div class="col-12 pl-0 pr-0 mt-1 text-right">
+                <button
+                  pButton
+                  (click)="resetFiles()"
+                  type="button"
+                  label="Limpiar"
+                  class="button-select-image-reset mr-1"
+                ></button>
+                <input
+                  type="file"
+                  name="file1"
+                  id="file1"
+                  (change)="fileChanged($event)"
+                />
+                <button
+                  pButton
+                  type="button"
+                  id="btnupload"
+                  label="Cargar"
+                  class="button-select-image-update"
+                ></button>
+              </div>
+            </div>
+      </div>
         <div class="col-12 offset-lg-6 col-lg-6 text-right">
           <div class="row">
             <div class="col-12 col-lg-6 mt-2">

@@ -24,7 +24,8 @@ namespace ACademyApi_Control.Controller.Login
                     nombre = (x.nombres + " "+x.apellidos).Trim(),
                     usuario = x.usuario,
                     email = x.correo,
-                    foto = x.foto
+                    foto = x.foto,
+                    rol = x.idRol
                 } ).FirstOrDefault();
 
             return login;

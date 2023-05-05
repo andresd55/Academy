@@ -15,5 +15,6 @@ namespace ACademyApi_Entidades.Entidades
         public string email { get; set; }
 
         public byte[] foto { get; set; }
+        public int rol { get; set; }
     }
 }
