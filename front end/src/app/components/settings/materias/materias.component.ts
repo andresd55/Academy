@@ -111,6 +111,7 @@ export class MateriasComponent implements OnInit {
     this.sharedService.createMateria(materiaInsert).subscribe(
       (response) => {
         this.displayConfirmComment = true;
+        this.insertForm.controls.nombre.setValue('');
         this.getMaterias();
       },
       (error) => {

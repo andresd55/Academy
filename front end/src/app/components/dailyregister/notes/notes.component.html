@@ -141,7 +141,7 @@
           <th>Acciones</th>
         </tr>
         <tr tbodyRecords *ngFor="let student of students">
-          <td>{{ student.estudiante.nombres + ' ' + student.estudiante.apellidos }}</td>
+          <td>{{ student.estudiante.usuario.nombres + ' ' + student.estudiante.usuario.apellidos }}</td>
           <td>{{ student.estudiante.grado.nombre }}</td>
           <td>{{ student.estudiante.curso.nombre }}</td>
           <td>{{ student.materiaDocente.materia.nombre }}</td>

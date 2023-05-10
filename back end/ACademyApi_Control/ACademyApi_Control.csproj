@@ -52,6 +52,7 @@
     <Compile Include="Controller\Parametrizacion\Cursos_Control.cs" />
     <Compile Include="Controller\Parametrizacion\Grados_Control.cs" />
     <Compile Include="Controller\Parametrizacion\Materias_Control.cs" />
+    <Compile Include="Controller\Registro\TiposIdentificacion_Control.cs" />
     <Compile Include="Controller\Registro\Roles_Control.cs" />
     <Compile Include="Controller\Registro\Usuarios_Control.cs" />
     <Compile Include="Controller\Registro\Estudiantes_Control.cs" />

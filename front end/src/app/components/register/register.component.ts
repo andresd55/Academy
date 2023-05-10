@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
   Subjects = [];
   Roles = [];
-
+  IdentificationTypes = [];
 
   constructor(private router: Router, private formBuilder: FormBuilder, 
     private sharedService: SharedService) { }
@@ -46,12 +46,24 @@ export class RegisterComponent implements OnInit {
     this.configUploadFiles();
     this.getSubjects();
     this.getRoles();
+    this.getIdentificationTypes();
+  }
+
+  getIdentificationTypes() {
+    this.sharedService.getTipoIdentificaciones().subscribe(
+      (response) => {
+        this.IdentificationTypes = response;
+      },
+      (error) => {
+      }
+    );
   }
 
   getRoles() {
     this.sharedService.getRoles().subscribe(
       (response) => {
-        this.Roles = response;
+        const idRolAdmin =  3;
+        this.Roles = response.filter(x => x.idRol != idRolAdmin);
       },
       (error) => {
       }
@@ -121,6 +133,8 @@ export class RegisterComponent implements OnInit {
       idRol: ['', [Validators.required]],
       nombres: ['', [Validators.required]],
       apellidos: ['', Validators.required],
+      idTipoIdentificacion: ['', Validators.required],
+      identificacion: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       foto: [''],
       genero: ['', Validators.required],

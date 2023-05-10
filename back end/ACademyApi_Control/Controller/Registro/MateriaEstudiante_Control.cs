@@ -51,6 +51,11 @@ namespace ACademyApi_Control.Controller.Registro
                 consulta = consulta.Where(x => x.materiaDocente.idMateria == filtros.idMateria);
             }
 
+            if (!string.IsNullOrEmpty(filtros.usuario))
+            {
+                consulta = consulta.Where(x => x.estudiante.usuario.usuario == filtros.usuario);
+            }
+
             return consulta;
         }
 

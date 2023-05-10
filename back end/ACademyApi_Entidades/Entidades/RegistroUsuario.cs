@@ -27,5 +27,9 @@ namespace ACademyApi_Entidades.Entidades
         public int[] arrayIdMaterias { get; set; }
 
         public int idRol { get; set; }
+
+        public string identificacion { get; set; }
+
+        public int idTipoIdentificacion { get; set; }
     }
 }

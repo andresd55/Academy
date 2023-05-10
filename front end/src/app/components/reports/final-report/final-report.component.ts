@@ -72,7 +72,8 @@ export class FinalReportComponent implements OnInit {
   getGrades() {
     this.sharedService.getGrados().subscribe(
       (response) => {
-        this.Grades = response;
+        const idDefaultValue = 1;
+        this.Grades = response.filter(x => x.idGrado != idDefaultValue);
       },
       (error) => {
       }
@@ -82,7 +83,8 @@ export class FinalReportComponent implements OnInit {
   getCourses() {
     this.sharedService.getCursos().subscribe(
       (response) => {
-        this.Courses = response;
+        const idDefaultValue = 2;
+        this.Courses = response.filter(x => x.idCurso != idDefaultValue);
       },
       (error) => {
       }

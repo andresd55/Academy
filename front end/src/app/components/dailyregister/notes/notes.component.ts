@@ -44,6 +44,7 @@ export class NotesComponent implements OnInit, AfterContentChecked {
   notDownloadExcel = false;
   materiaEstudiante: any;
   student: any; 
+  currentUserAplication: any;
 
   Grades = [];
 
@@ -74,7 +75,15 @@ export class NotesComponent implements OnInit, AfterContentChecked {
     this.getCourses();
     this.getSubjects();
     //Services
-    this.getStudents('');
+    this.currentUserAplication = JSON.parse(localStorage.getItem('user'));
+    const idRolEstuidiante = 2;
+    let parameters = '';
+    if(this.currentUserAplication.rol == idRolEstuidiante){
+      parameters += '?idMateria=0&idGrado=0&idCurso=0&usuario='+this.currentUserAplication.usuario;;
+    } else {
+      parameters += '';
+    }
+    this.getStudents(parameters);
   }
 
   filter() {
@@ -94,13 +103,21 @@ export class NotesComponent implements OnInit, AfterContentChecked {
     } else {
       parameters += '&idCurso=0';
     }
+    const idRolDocente = 1;
+    if(this.currentUserAplication.rol != idRolDocente){
+      parameters += '&usuario='+this.currentUserAplication.usuario;
+    } else {
+      parameters += '&usuario=';
+    }
+    console.log(parameters);
     this.getStudents(parameters);
   }
 
   getGrades() {
     this.sharedService.getGrados().subscribe(
       (response) => {
-        this.Grades = response;
+        const idDefaultValue = 1;
+        this.Grades = response.filter(x => x.idGrado != idDefaultValue);
       },
       (error) => {
       }
@@ -110,7 +127,8 @@ export class NotesComponent implements OnInit, AfterContentChecked {
   getCourses() {
     this.sharedService.getCursos().subscribe(
       (response) => {
-        this.Courses = response;
+        const idDefaultValue = 2;
+        this.Courses = response.filter(x => x.idCurso != idDefaultValue);
       },
       (error) => {
       }
@@ -130,7 +148,11 @@ export class NotesComponent implements OnInit, AfterContentChecked {
   getStudents(parameters) {
     this.sharedService.getReport(parameters).subscribe(
       (response) => {
-        this.students = response;
+        const idDefaultValueCurso = 2;
+        const idDefaultValue = 1;
+        this.students = response.filter(x => x.estudiante.curso.idCurso != idDefaultValueCurso
+          && x.estudiante.grado.idGrado != idDefaultValue);
+
         this.filterTable();
       },
       (error) => {

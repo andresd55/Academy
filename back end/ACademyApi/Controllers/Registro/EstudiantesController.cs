@@ -18,11 +18,13 @@ namespace ACademyApi.Controllers.Registro
     {
         private Estudiantes_Control _control;
         private MateriaEstudiante_Control _controlMateriaEstudiante;
+        private MateriaDocente_Control _controlMateriaDocente;
 
         public EstudiantesController()
         {
             _control = new Estudiantes_Control();
             _controlMateriaEstudiante = new MateriaEstudiante_Control();
+            _controlMateriaDocente = new MateriaDocente_Control();
         }
 
         // GET: api/Estudiantes
@@ -90,11 +92,12 @@ namespace ACademyApi.Controllers.Registro
                 return BadRequest(ModelState);
             }
 
-            _control.PostEstudiantes(estudiante);
+            _control.PutEstudiantes(estudiante);
             _control.SaveChange();
 
-            foreach (int idMateriaDocente in registroEstudiante.arrayIdMateriasDocente)
+            foreach (int idMateria in registroEstudiante.arrayIdMaterias)
             {
+                int idMateriaDocente = _controlMateriaDocente.GetIdMateriaDocenteByIdMateria(idMateria);
                 var materiaEstudiante = _controlMateriaEstudiante.MapeoRegistroMateriaEstudiante(new
                 RegistroMateriaEstudiante()
                 {

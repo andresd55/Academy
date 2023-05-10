@@ -19,11 +19,13 @@ namespace ACademyApi.Controllers.Registro
     public class UsuariosController : ApiController
     {
         private Usuarios_Control _controlUsuario;
+        private Estudiantes_Control _controlEstudiante;
         private MateriaDocente_Control _controlMateriaDocente;
 
         public UsuariosController()
         {
             _controlUsuario = new Usuarios_Control();
+            _controlEstudiante = new Estudiantes_Control();
             _controlMateriaDocente = new MateriaDocente_Control();
 
         }
@@ -99,7 +101,17 @@ namespace ACademyApi.Controllers.Registro
             _controlUsuario.PostUsuarios(usuario);
             _controlUsuario.SaveChange();
 
-            foreach(int idMateria in registroUsuario.arrayIdMaterias)
+            int idRolEstudiante = 2;
+            if(registroUsuario.idRol == idRolEstudiante)
+            {
+                int idGradoDefault = 1;
+                int idCursoDefault = 2;
+                var estudiante = _controlEstudiante.MapeoRegistroEstudiante(new RegistroEstudiante() { idEstudiante = 0, idGrado = idGradoDefault, idCurso = idCursoDefault, idUsuario = usuario.idUsuario });
+                _controlEstudiante.PostEstudiantes(estudiante);
+                _controlEstudiante.SaveChange();
+            }
+
+            foreach (int idMateria in registroUsuario.arrayIdMaterias)
             {
                 var materiaUsuario = _controlMateriaDocente.MapeoRegistroMateriaDocente(new RegistroMateriaDocente() { idMateriaDocente = 0, idDocente = usuario.idUsuario, idMateria = idMateria });
                 _controlMateriaDocente.PostMateriaDocente(materiaUsuario);

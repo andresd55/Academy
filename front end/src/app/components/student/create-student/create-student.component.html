@@ -1,25 +1,29 @@
 <div class="col-12  text-center" >
     <h1 class="tittle">
-        Registro De Estudiantes
+        Matricula Estudiante
     </h1>
 </div>
 <div class="offset-2 col-8 panel">
     <div class="row mx-0">
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
-                Nombres
+                Estudiante
             </label>
-            <input
-                type="email"
-                formControlName="nombres"
-                pInputText
-                placeholder="Nombres"
-                class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && !IsValid('nombres') }"
-            />
-            <div class="invalid-feedback mb-2">
-              Campo obligatorio 
-            </div>
+            <p-dropdown
+                    formControlName="idEstudiante"
+                    [options]="Students"
+                    [filter]="true"
+                    optionLabel="displayLabel"
+                    optionValue="idEstudiante"
+                    placeholder="Seleccione una opción"
+                    [ngClass]="{ 'is-invalid': submitted && !IsValid('idEstudiante') }"
+                >
+              </p-dropdown>
+                <div class="invalid-feedback mb-2">
+                  Campo obligatorio 
+                </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Número curso
             </label>
@@ -34,22 +38,6 @@
                 <div class="invalid-feedback mb-2">
                   Campo obligatorio 
                 </div>
-        </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="validationDefault01" class="label-required">
-                Apellidos
-            </label>
-            <input
-                type="email"
-                formControlName="apellidos"
-                pInputText
-                placeholder="Apellidos"
-                class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && !IsValid('apellidos') }"
-            />
-            <div class="invalid-feedback mb-2">
-              Campo obligatorio 
-            </div>
         </div>
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
@@ -69,71 +57,16 @@
         </div>
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
-                Correo
-            </label>
-            <input
-                type="email"
-                formControlName="correo"
-                pInputText
-                placeholder="Correo"
-                class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && !IsValid('correo') }"
-            />
-            <div class="invalid-feedback mb-2">
-              Campo obligatorio 
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="" class="label-required">
-                Genero
-            </label>
-            <div class="row w-100">
-                <div class="col-12 col-lg-6 mt-2">
-                    <input
-                      type="radio"
-                      value="M"
-                      class="inp-checkbox"
-                      name="genero"
-                      formControlName="genero"
-                      id="rb1"
-                      [ngClass]="{ 'is-invalid': submitted && !IsValid('genero') }"
-                    />
-                    <label for="rb1" class="ml-4 mt-1">
-                       Hombre
-                    </label>
-                    <div class="invalid-feedback mb-2 w-300">
-                      Campo obligatorio  
-                    </div> 
-                  </div>
-            
-                  <div  class="col-12 col-lg-6 mt-2">
-                    <input
-                      type="radio"
-                      value="F"
-                      class="inp-checkbox"
-                      name="genero"
-                      formControlName="genero"
-                      id="rb2"
-                      [ngClass]="{ 'is-invalid': submitted && !IsValid('genero') }"
-                    />
-                    <label for="rb2" class="ml-4 mt-1">
-                      Mujer
-                    </label>
-                  </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
-            <label for="validationDefault01" class="label-required">
                 Materia
             </label>
-            <p-dropdown
-              formControlName="idMateriaDocente"
+            <p-multiSelect
+              formControlName="arrayIdMaterias"
               [options]="Subjects"
               optionLabel="nombre"
               optionValue="idMateria"
               placeholder="Seleccione una opción"
-              [ngClass]="{ 'is-invalid': submitted && !IsValid('idMateriaDocente') }"
-            ></p-dropdown>
+              [ngClass]="{ 'is-invalid': submitted && !IsValid('arrayIdMaterias') }"
+            ></p-multiSelect>
             <div class="invalid-feedback mb-2">
               Campo obligatorio 
             </div>

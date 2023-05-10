@@ -18,6 +18,10 @@ namespace ACademyApi_Control.Controller.Registro
         {
             db = new ACademyDbContext();
         }
+        public int GetIdMateriaDocenteByIdMateria(int idMateria)
+        {
+            return db.MateriaDocente.Where(m => m.idMateria == idMateria).FirstOrDefault().idMateriaDocente;
+        }
 
         public void PutMateriaDocente(MateriaDocente materiaDocente)
         {

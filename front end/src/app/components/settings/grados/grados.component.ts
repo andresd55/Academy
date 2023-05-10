@@ -108,6 +108,7 @@ export class GradosComponent implements OnInit {
     let gradoInsert = { 
       nombre: this.insertForm.controls.nombre.value
     };
+    this.insertForm.controls.nombre.setValue('');
     this.sharedService.createGrade(gradoInsert).subscribe(
       (response) => {
         this.displayConfirmComment = true;
@@ -133,7 +134,8 @@ export class GradosComponent implements OnInit {
   getGrades() {
     this.sharedService.getGrados().subscribe(
       (response) => {
-        this.Grades = response;
+        const idDefaultValue = 1;
+        this.Grades = response.filter(x => x.idGrado != idDefaultValue);
         this.filterTable();
       },
       (error) => {

@@ -3,6 +3,7 @@ namespace ACademyApi_Entidades.Database
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Usuario
     {
@@ -22,7 +23,18 @@ namespace ACademyApi_Entidades.Database
         public string usuario { get; set; }
 
         public string password { get; set; }
+
         public int idRol { get; set; }
+
+        public string identificacion { get; set; }
+
+        public int idTipoIdentificacion { get; set; }
+
+        [ForeignKey("idRol")]
+        public virtual Rol rol { get; set; }
+
+        [ForeignKey("idTipoIdentificacion")]
+        public virtual TipoIdentificacion tipoIdentificacion { get; set; }
 
         [JsonIgnore]
         public virtual List<MateriaDocente> materiaDocente { get; set; }

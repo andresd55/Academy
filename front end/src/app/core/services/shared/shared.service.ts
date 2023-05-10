@@ -34,6 +34,12 @@ export class SharedService {
     );
   }
 
+  getStudents(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/Estudiantes` 
+    );
+  }
+
   getReport(parameters): Observable<any> {
     return this.http.get<any>(
       `${environment.baseUrl.url}/MateriaEstudiante` + parameters
@@ -56,6 +62,12 @@ export class SharedService {
   ​zoneIdSalesExecutiveGroupIdGet(countryId: any, securityUsersId: any): Observable<ResponseBase> { 
     return this.http.get<ResponseBase>(
       `${environment.baseUrl.url}${environment.baseUrl.url}/Login`
+    );
+  }
+
+  getTipoIdentificaciones(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.baseUrl.url}/TipoIdentificacion` 
     );
   }
 

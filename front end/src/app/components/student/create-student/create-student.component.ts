@@ -17,6 +17,8 @@ export class CreateStudentComponent implements OnInit {
   showError = false;
   submitted = false;
 
+  Students = [];
+
   Grades = [];
 
   Courses = [];
@@ -30,13 +32,35 @@ export class CreateStudentComponent implements OnInit {
     this.getGrades();
     this.getCourses();
     this.getSubjects();
+    this.getStudents();
     this.getFormLoginUser();
+  }
+
+  getStudents() {
+    this.sharedService.getStudents().subscribe(
+      (response) => {
+        const idDefaultValueCurso = 2;
+        const idDefaultValue = 1;
+        this.Students = response.filter(x => x.curso.idCurso == idDefaultValueCurso
+          && x.grado.idGrado == idDefaultValue);
+        this.Students = this.Students.map((estudiante: any) => {
+          return {
+            ...estudiante,
+            displayLabel: estudiante.usuario.identificacion + ' - ' + estudiante.usuario.nombres + ' ' + estudiante.usuario.apellidos 
+          };
+        });
+        console.log(this.Students);
+      },
+      (error) => {
+      }
+    );
   }
 
   getGrades() {
     this.sharedService.getGrados().subscribe(
       (response) => {
-        this.Grades = response;
+        const idDefaultValue = 1;
+        this.Grades = response.filter(x => x.idGrado != idDefaultValue);
       },
       (error) => {
       }
@@ -46,7 +70,8 @@ export class CreateStudentComponent implements OnInit {
   getCourses() {
     this.sharedService.getCursos().subscribe(
       (response) => {
-        this.Courses = response;
+        const idDefaultValue = 2;
+        this.Courses = response.filter(x => x.idCurso != idDefaultValue);
       },
       (error) => {
       }
@@ -57,6 +82,7 @@ export class CreateStudentComponent implements OnInit {
     this.sharedService.getMaterias().subscribe(
       (response) => {
         this.Subjects = response;
+        console.log(this.Subjects)
       },
       (error) => {
       }
@@ -69,13 +95,11 @@ export class CreateStudentComponent implements OnInit {
 
   private getFormLoginUser() {
     return (this.registerFormLogin = this.formBuilder.group({
-      nombres: ['', [Validators.required]],
-      apellidos: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      genero: ['', Validators.required],
+      idEstudiante: ['', Validators.required],
       idGrado: ['', Validators.required],
       idCurso: ['', Validators.required],
-      idMateriaDocente: ['', Validators.required],
+      idUsuario: ['', []],
+      arrayIdMaterias: ['', Validators.required],
     }));
   }
 
@@ -83,6 +107,9 @@ export class CreateStudentComponent implements OnInit {
     this.submitted = true;
     console.log(this.registerFormLogin.value);
     if(this.registerFormLogin.valid) {
+      const usuario = this.Students.filter(student => student.idEstudiante == 
+        this.registerFormLogin.controls.idEstudiante.value);
+      this.registerFormLogin.controls.idUsuario.setValue(usuario[0].idUsuario);
       this.sharedService.createStudent(this.registerFormLogin.value).subscribe(
         (response) => {
           if (response) {

@@ -32,13 +32,14 @@ namespace ACademyApi.Controllers.Registro
 
         // GET: api/MateriaEstudiante/5
         [ResponseType(typeof(MateriaEstudiante))]
-        public IHttpActionResult GetMateriaEstudiante(int idGrado, int idCurso, int idMateria)
+        public IHttpActionResult GetMateriaEstudiante(int idGrado, int idCurso, int idMateria, string usuario)
         {
             var filtros = new FiltrosConsulta()
             {
                 idGrado = idGrado,
                 idCurso = idCurso,
-                idMateria = idMateria
+                idMateria = idMateria,
+                usuario = usuario
             };
 
             List<MateriaEstudiante> consulta = _control.GetMateriaEstudiante(filtros).ToList();

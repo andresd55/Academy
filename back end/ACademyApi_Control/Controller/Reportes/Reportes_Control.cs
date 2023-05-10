@@ -27,9 +27,9 @@ namespace ACademyApi_Control.Controller.Reportes
         {
             string filtrosScript = string.Empty;
 
-            filtrosScript += filtros.idCurso != 0 ? " AND e.idCurso = 1" : "";
-            filtrosScript += filtros.idGrado != 0 ? " AND e.idGrado = 1" : "";
-            filtrosScript += filtros.idMateria != 0 ? " AND md.idMateria = 1" : "";
+            filtrosScript += filtros.idCurso != 0 ? " AND e.idCurso = " + filtros.idCurso : "";
+            filtrosScript += filtros.idGrado != 0 ? " AND e.idGrado = " + filtros.idGrado : "";
+            filtrosScript += filtros.idMateria != 0 ? " AND md.idMateria = " + filtros.idMateria : "";
 
             return ObtenerGrillaReporteAcademico(filtrosScript);
         }
@@ -37,7 +37,7 @@ namespace ACademyApi_Control.Controller.Reportes
         private IQueryable<GrillaReporteAcademico> ObtenerGrillaReporteAcademico(string filtros)
         {
             string script = @"SELECT 
-	                            TRIM(e.nombres + ' ' + e.apellidos) estudiante,
+	                            TRIM(u.nombres + ' ' + u.apellidos) estudiante,
 	                            c.nombre curso,
 	                            g.nombre grado,
 	                            m.nombre materia,
@@ -49,11 +49,12 @@ namespace ACademyApi_Control.Controller.Reportes
 	                            ROW_NUMBER() OVER(PARTITION BY e.idCurso, e.idGrado, md.idMateria ORDER BY (nota1 + nota2 + nota3) DESC) AS puesto
                             FROM ACademyDB.dbo.MateriaEstudiante me
                             INNER JOIN ACademyDB.dbo.Estudiante e ON me.idEstudiante = e.idEstudiante
+                            INNER JOIN ACademyDB.dbo.Usuario u ON e.idUsuario = e.idUsuario
                             INNER JOIN ACademyDB.dbo.MateriaDocente md ON md.idMateriaDocente = me.idMateriaDocente
                             INNER JOIN ACademyDB.dbo.Curso c ON e.idCurso = c.idCurso
                             INNER JOIN ACademyDB.dbo.Grado g ON e.idGrado = g.idGrado
                             INNER JOIN ACademyDB.dbo.Materia m ON md.idMateria = m.idMateria
-                            WHERE 1=1";
+                            WHERE g.idGrado <> 1 and u.idRol = 2";
 
             script += filtros;
             script += " ORDER BY 2, 3, 4, 8 DESC";

@@ -70,6 +70,38 @@
             </div>
         </div>
         <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
+          <label for="validationDefault01"  class="label-required">
+              Tipo de identificación
+          </label>
+          <p-dropdown
+            formControlName="idTipoIdentificacion"
+            [options]="IdentificationTypes"
+            optionLabel="nombre"
+            optionValue="idTipoIdentificacion"
+            placeholder="Seleccione una opción"
+            [ngClass]="{ 'is-invalid': submitted && !IsValid('idTipoIdentificacion') }"
+          ></p-dropdown>
+          <div class="invalid-feedback mb-2">
+            Campo obligatorio 
+          </div>
+      </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
+            <label for="validationDefault01" class="label-required">
+                Número de identificación
+            </label>
+            <input
+                type="text"
+                formControlName="identificacion"
+                pInputText
+                placeholder="Número de identificación"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && !IsValid('identificacion') }"
+            />
+            <div class="invalid-feedback mb-2">
+              Campo obligatorio 
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-2" [formGroup]="registerFormLogin">
             <label for="validationDefault01" class="label-required">
                 Usuario
             </label>

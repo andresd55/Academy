@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\TipoIdentificacion.cs" />
     <Compile Include="Database\Rol.cs" />
     <Compile Include="Database\Curso.cs" />
     <Compile Include="Database\Usuario.cs" />

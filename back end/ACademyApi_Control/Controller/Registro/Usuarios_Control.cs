@@ -64,7 +64,9 @@ namespace ACademyApi_Control.Controller.Registro
                 nombres = infoUsuario.nombres,
                 password = infoUsuario.password,
                 usuario = infoUsuario.usuario,
-                idRol = infoUsuario.idRol
+                idRol = infoUsuario.idRol,
+                identificacion = infoUsuario.identificacion,
+                idTipoIdentificacion = infoUsuario.idTipoIdentificacion
             };
 
             return newUsuario;

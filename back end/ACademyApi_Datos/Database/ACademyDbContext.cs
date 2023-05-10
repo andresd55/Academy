@@ -21,6 +21,7 @@ namespace ACademyApi_Datos.Database
         public virtual DbSet<Materia> Materia { get; set; }
         public virtual DbSet<MateriaDocente> MateriaDocente { get; set; }
         public virtual DbSet<MateriaEstudiante> MateriaEstudiante { get; set; }
+        public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -108,6 +108,7 @@ export class CursosComponent implements OnInit {
     let cursoInsert = { 
       nombre: this.insertForm.controls.nombre.value
     };
+    this.insertForm.controls.nombre.setValue('');
     this.sharedService.createCourse(cursoInsert).subscribe(
       (response) => {
         this.displayConfirmComment = true;
@@ -133,7 +134,8 @@ export class CursosComponent implements OnInit {
   getCourses() {
     this.sharedService.getCursos().subscribe(
       (response) => {
-        this.Courses = response;
+        const idDefaultValue = 2;
+        this.Courses = response.filter(x => x.idCurso != idDefaultValue);
         this.filterTable();
       },
       (error) => {

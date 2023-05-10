@@ -67,12 +67,9 @@ namespace ACademyApi_Control.Controller.Registro
             var newEstudiante = new Estudiante()
             {
                 idEstudiante = infoEstudiante.idEstudiante,
-                nombres = infoEstudiante.nombres,
-                apellidos = infoEstudiante.apellidos,
-                correo = infoEstudiante.correo,
-                genero = infoEstudiante.genero,
                 idGrado = infoEstudiante.idGrado,
-                idCurso = infoEstudiante.idCurso
+                idCurso = infoEstudiante.idCurso,
+                idUsuario = infoEstudiante.idUsuario,
             };
 
             return newEstudiante;
